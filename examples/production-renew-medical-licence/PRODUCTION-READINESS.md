@@ -1,7 +1,7 @@
 # Production-readiness report – Renew medical licence (front-end)
 
 **Generated:** 2026-05-16
-**Skill:** `bimstack:build-for-production` via `/productionise`
+**Skill:** `bimstack:build-for-production` via `/bimstack:productionise`
 **Source iteration:** `examples/build-renew-medical-licence/prototype-1-phone-first/iteration-3/index.html`
 **Target phase gate:** Alpha → Beta
 
@@ -82,7 +82,7 @@ package.json               ← npm scripts for everything
 - **Cookie security** – when the back end is wired and sets cookies, the existing Playwright test will check Secure / HttpOnly / SameSite
 - **DPIA** – with the Council's DPO before public beta
 
-**Next action:** cyber-engineer agent refresh threat model and plan pen test. `/threat-model` for the refresh.
+**Next action:** cyber-engineer agent refresh threat model and plan pen test. `/bimstack:threat-model` for the refresh.
 
 ### Standard 13 – Monitor, manage, measure performance
 
@@ -156,17 +156,17 @@ Front-end readiness is a slice of beta readiness. The other slices, owned by oth
 | Backend architecture and ADRs | developer | direct invocation |
 | Trident ID integration | developer + MIST briefing | direct invocation |
 | Payment gateway integration | developer + MIST briefing | direct invocation |
-| Council review backstage interface | **needs its own `/build` track** – brief from `feedback-round-2.md` round-2 transcript with Sandra Layne | `/build` |
-| Threat model refresh | cyber engineer | `/threat-model` |
+| Council review backstage interface | **needs its own `/bimstack:build` track** – brief from `feedback-round-2.md` round-2 transcript with Sandra Layne | `/bimstack:build` |
+| Threat model refresh | cyber engineer | `/bimstack:threat-model` |
 | Pen test plan and execution | cyber engineer + external supplier | direct invocation |
 | DPIA | cyber engineer + Medical Council DPO | direct invocation |
 | Incident runbook | cyber engineer + delivery manager | direct invocation |
 | Operational readiness | delivery manager | direct invocation |
 | Analytics wiring (4 GDS metrics) | developer + delivery manager | direct invocation |
-| Standards self-assessment | delivery manager (orchestrating all agents) | `/assess` |
-| Phase gate | delivery manager | `/assess` |
+| Standards self-assessment | delivery manager (orchestrating all agents) | `/bimstack:assess` |
+| Phase gate | delivery manager | `/bimstack:assess` |
 
-The Standards self-assessment (`/assess for the beta gate`) is the formal moment where this report's `Partly met with a plan` ratings get either evidence to become `Met`, or a documented reason to remain partly met.
+The Standards self-assessment (`/bimstack:assess for the beta gate`) is the formal moment where this report's `Partly met with a plan` ratings get either evidence to become `Met`, or a documented reason to remain partly met.
 
 ---
 
@@ -179,7 +179,7 @@ The Standards self-assessment (`/assess for the beta gate`) is the formal moment
 3. **Run the k6 peak load test against staging** (twice expected Oct–Dec volume). Required for Standards 5 and 13.
 4. **Refresh the threat model** to cover the production form actions and the address-override flow. Required for Standard 11.
 5. **Pen test plan signed off** before public beta. Cyber engineer owns; external supplier executes.
-6. **Council backstage interface** scoped as a parallel `/build` track. Not blocking for private beta if Sandra and one or two officers can review applications manually; blocking for public beta.
+6. **Council backstage interface** scoped as a parallel `/bimstack:build` track. Not blocking for private beta if Sandra and one or two officers can review applications manually; blocking for public beta.
 
 If conditions 1–4 are met, the team is ready for private beta on the front end. Conditions 5–6 must be met before public beta.
 

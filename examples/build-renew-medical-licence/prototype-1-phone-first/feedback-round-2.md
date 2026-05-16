@@ -2,7 +2,7 @@
 
 **Date of fieldwork:** 18–20 June 2026
 **Date of synthesis:** 2026-06-22
-**Source:** 5 raw transcripts in `transcripts-round-2/`. Synthesised by service-designer via `/iterate`.
+**Source:** 5 raw transcripts in `transcripts-round-2/`. Synthesised by service-designer via `/bimstack:iterate`.
 **Participants:** 4 doctors + 1 Medical Council administrator (Sandra Layne, renewals officer)
 
 > This is a synthesis – not a substitute for the transcripts. Quotes are verbatim from the transcripts with participant IDs attached. If the synthesis got something wrong, fix it and re-run the iteration step.

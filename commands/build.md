@@ -13,7 +13,7 @@ Before you start, gather these from the user if they haven't already provided th
 - The shape of the citizen the service is for (cohort, context, device assumptions)
 - Whether the user wants 2 or 3 candidate prototypes (default: 3)
 
-If the user hasn't provided this context, ask for it briefly using the AskUserQuestion tool. Do not invent the user need or the cohort. Do not skip discovery just because /build is fast.
+If the user hasn't provided this context, ask for it briefly using the AskUserQuestion tool. Do not invent the user need or the cohort. Do not skip discovery just because /bimstack:build is fast.
 
 Once you have the brief, the skill produces:
 
@@ -35,4 +35,4 @@ Each prototype must:
 
 When the published `@govtech-bb/styles` CDN URL is known to be reachable, the prototype should link to it. Otherwise inline the approximation CSS from the brief-to-prototypes skill.
 
-After generation, share each prototype file via a computer:// link. Tell the user how to test them (open in a browser, view on a phone, follow the test-plan.md), and offer to run `/iterate` once feedback is collected.
+After generation, share each prototype file via a computer:// link. Tell the user how to test them (open in a browser, view on a phone, follow the test-plan.md), and offer to run `/bimstack:iterate` once feedback is collected.

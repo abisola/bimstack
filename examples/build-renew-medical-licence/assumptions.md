@@ -107,6 +107,6 @@ A practical recipe:
 2. **Week 2:** brief Trident ID team (MIST), the Medical Council, and Data Protection on the items that need them. Many of these can be parallel.
 3. **Week 3:** existing-data review with the Council on volumes, peaks, current journey times, and the cohort split (public vs private practice).
 4. **Week 4:** policy items – brief with the Council's legal counsel.
-5. **Continuous:** `/iterate` after each round.
+5. **Continuous:** `/bimstack:iterate` after each round.
 
 By the end of week 4, most assumptions should have moved to either confirmed-with-evidence or resolved-by-changing-the-design.

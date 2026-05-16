@@ -112,9 +112,9 @@ bimstack is a Claude Code plugin and a public reference repo. You can use either
 
 In any new Claude Code or Cowork session:
 
-- `/help` should list `/build`, `/iterate`, `/discover`, `/weeknote`, `/assess`, `/show`, `/plain-language`, `/threat-model`
-- The five agents (service-designer, content-designer, delivery-manager, developer, cyber-engineer) are invokable with `@`
-- The seven skills are loaded and trigger automatically on the right phrases
+- Type `/bimstack:` and autocomplete should reveal all nine commands (Claude Code namespaces plugin commands by plugin name)
+- Run `/agents` to confirm the five agents (service-designer, content-designer, delivery-manager, developer, cyber-engineer) are registered
+- Skills are loaded and trigger automatically on the right phrases (no manual invocation needed)
 
 The plugin leans on the GovTech Barbados skills (`govtech-barbados-services`, `govtech-barbados-forms`, `govtech-barbados-presentations`, `govtech-barbados-qr-codes`) and on the Anthropic `design`, `service-design`, and `frontend-design` plugins. Install those alongside bimstack for the full experience.
 
@@ -138,15 +138,15 @@ If you're not sure, ask the **delivery manager** first – they'll route you.
 
 | You want to… | Run | Hands off to |
 |---|---|---|
-| Turn a brief into testable prototypes | `/build` | content-designer + developer |
-| Roll feedback into the next version | `/iterate` | content-designer + developer |
-| Take an iteration to production-ready | `/productionise` | developer + cyber-engineer + content-designer |
-| Publish what we did this week | `/weeknote` | delivery-manager |
-| Self-assess against the 13 Standards | `/assess` | delivery-manager + every other agent |
-| Scaffold a discovery phase | `/discover` | service-designer |
-| Plan a show-and-tell | `/show` | delivery-manager |
-| Review a piece of copy | `/plain-language` | content-designer |
-| Draft or refresh a threat model | `/threat-model` | cyber-engineer |
+| Turn a brief into testable prototypes | `/bimstack:build` | content-designer + developer |
+| Roll feedback into the next version | `/bimstack:iterate` | content-designer + developer |
+| Take an iteration to production-ready | `/bimstack:productionise` | developer + cyber-engineer + content-designer |
+| Publish what we did this week | `/bimstack:weeknote` | delivery-manager |
+| Self-assess against the 13 Standards | `/bimstack:assess` | delivery-manager + every other agent |
+| Scaffold a discovery phase | `/bimstack:discover` | service-designer |
+| Plan a show-and-tell | `/bimstack:show` | delivery-manager |
+| Review a piece of copy | `/bimstack:plain-language` | content-designer |
+| Draft or refresh a threat model | `/bimstack:threat-model` | cyber-engineer |
 
 ## How bimstack relates to other things
 

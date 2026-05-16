@@ -1,6 +1,6 @@
 ---
 name: brief-to-prototypes
-description: Turn a brief or a problem statement into multiple clickable HTML prototypes ready for user testing, in the GovTech Barbados house style, with assumptions surfaced inline. Use this when the team has a brief and wants to skip straight to testable artefacts instead of waiting weeks for the first prototype. Triggers on "build me a prototype", "turn this into a service", "give me something to test", "what could this look like", "/build", "alpha prototypes for", "candidate alphas", "multiple alphas".
+description: Turn a brief or a problem statement into multiple clickable HTML prototypes ready for user testing, in the GovTech Barbados house style, with assumptions surfaced inline. Use this when the team has a brief and wants to skip straight to testable artefacts instead of waiting weeks for the first prototype. Triggers on "build me a prototype", "turn this into a service", "give me something to test", "what could this look like", "/bimstack:build", "alpha prototypes for", "candidate alphas", "multiple alphas".
 ---
 
 # Brief → testable prototypes
@@ -21,7 +21,7 @@ For the larger workflow this sits inside, read `PLAYBOOK.md` – the *Rapid prot
 - Discovery is ending and the team needs alphas to take into testing
 - A senior decision-maker is asking "what would it look like?" and the team needs an honest answer
 
-**Do not use this skill to skip discovery.** A prototype built without research is a guess made visible. Standard 1 still applies – the brief feeding into `/build` should be evidence-led even when the build is fast.
+**Do not use this skill to skip discovery.** A prototype built without research is a guess made visible. Standard 1 still applies – the brief feeding into `/bimstack:build` should be evidence-led even when the build is fast.
 
 ---
 
@@ -164,13 +164,13 @@ The user then either:
 
 - Tests the prototypes with users (see `test-plan.md`)
 - Reviews them with the MDA before testing
-- Asks the agent to refine one variant using `/iterate`
+- Asks the agent to refine one variant using `/bimstack:iterate`
 
 ---
 
 ## What this skill does not do
 
-- **It does not write production code.** These prototypes are throwaway. They look like production but they are not. Standard 8 starts in beta, not in `/build`.
+- **It does not write production code.** These prototypes are throwaway. They look like production but they are not. Standard 8 starts in beta, not in `/bimstack:build`.
 - **It does not invent the user need.** The brief must come from research or from a clear MDA ask. The skill flags every gap as `[VERIFY WITH USERS]` – it does not paper over them.
 - **It does not skip the standards check.** Each prototype is generated with Standards 1, 3, 4, 5, 7 baked in. If a hypothesis violates one of these (e.g. an inaccessible prototype), the skill says so and either refuses or explicitly flags it as a known violation to test against.
 - **It does not lock in the design system gaps.** When the prototype reaches for a pattern the design system doesn't yet have, the skill marks it as `[KNOWN GAP]` and proposes the pattern back to the design system maintainers.
@@ -235,9 +235,9 @@ The team should:
 1. Open each prototype in a browser. Click through it. Read the assumptions panel.
 2. Walk the journey on a phone, on a slow connection. Standard 3 begins here.
 3. Run the test plan with citizens. The skill produces this in `test-plan.md`.
-4. Bring feedback into `/iterate` for the next version.
+4. Bring feedback into `/bimstack:iterate` for the next version.
 
-The output of `/build` is not the alpha. The output is the **starting point** for the alpha. The alpha is what the team learns from testing.
+The output of `/bimstack:build` is not the alpha. The output is the **starting point** for the alpha. The alpha is what the team learns from testing.
 
 ---
 

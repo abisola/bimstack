@@ -101,9 +101,9 @@ Then in any Claude Code or Cowork session:
 
 In a new session:
 
-- Type `/help` and confirm you can see `/build`, `/iterate`, `/productionise`, `/discover`, `/weeknote`, `/assess`, `/show`, `/plain-language`, `/threat-model`
-- Type `@` and confirm you can see service-designer, content-designer, delivery-manager, developer, cyber-engineer alongside the agents you already had
-- Try `@service-designer hello` and see whether the agent introduces itself
+- Type `/bimstack:` and the autocomplete should reveal all nine commands: `/bimstack:build`, `/bimstack:iterate`, `/bimstack:productionise`, `/bimstack:discover`, `/bimstack:weeknote`, `/bimstack:assess`, `/bimstack:show`, `/bimstack:plain-language`, `/bimstack:threat-model`. (Claude Code namespaces plugin commands by plugin name, so the bare `/discover` form won't appear – type the `/bimstack:` prefix first.)
+- Run `/agents` to list the agents Claude Code can route to. You should see service-designer, content-designer, delivery-manager, developer, cyber-engineer alongside the agents you already had.
+- Try a task that matches an agent's description, e.g. *"Plan a discovery for renewing a fishing licence."* Claude Code routes it to the service-designer automatically – you don't `@-mention` agents in Claude Code, you describe the task.
 
 ### Install the supporting plugins
 
@@ -202,7 +202,7 @@ bimstack uses the GDS Way phases. Each phase has a clear purpose. The team produ
 | **Beta** | Build the real service and put it in front of real citizens | 12–26 weeks for private beta; ongoing for public beta | Working production code, the four GDS metrics being reported, source in a public repository |
 | **Live** | Keep meeting the user need as the world changes | Indefinite – until the service is retired | Continuous improvement, published performance data, a service that still works in three years |
 
-**Each phase ends with a gate** – the team self-assesses against the Barbados Digital Service Standards. bimstack's `/assess` command runs the self-assessment. A formal panel reassessment follows.
+**Each phase ends with a gate** – the team self-assesses against the Barbados Digital Service Standards. bimstack's `/bimstack:assess` command runs the self-assessment. A formal panel reassessment follows.
 
 **The agents adjust by phase.** Ask the Developer to "build production code in alpha" and they'll push back – production code belongs in beta. Tell every agent what phase you're in; they'll adjust what they produce.
 
@@ -218,20 +218,20 @@ bimstack adds nine slash commands. Five for daily work, four for major workflows
 
 | Command | What it does | When to run |
 |---|---|---|
-| `/discover [service]` | Scaffolds a discovery: problem statement, stakeholder map, research plan, interview guide, ecosystem map starter, discovery report template | An MDA brief has landed and no research has been done yet |
-| `/build [brief]` | Turns a brief into 2–3 clickable HTML prototypes in the GovBB house style, with assumptions surfaced inline and a test plan attached | Discovery is done and the team wants testable artefacts in hours, not weeks |
-| `/iterate [prototype]` | Takes user-testing feedback (structured notes or raw transcripts) and produces the next version with a changelog linking every change to the feedback that drove it | After every round of user testing |
-| `/productionise [iteration]` | Splits a validated prototype iteration into per-page HTML, removes the alpha-only chrome, generates a comprehensive test suite (E2E, accessibility, security, load), produces a production-readiness report | When a prototype has earned its place through several iteration rounds and the team is ready for beta |
+| `/bimstack:discover [service]` | Scaffolds a discovery: problem statement, stakeholder map, research plan, interview guide, ecosystem map starter, discovery report template | An MDA brief has landed and no research has been done yet |
+| `/bimstack:build [brief]` | Turns a brief into 2–3 clickable HTML prototypes in the GovBB house style, with assumptions surfaced inline and a test plan attached | Discovery is done and the team wants testable artefacts in hours, not weeks |
+| `/bimstack:iterate [prototype]` | Takes user-testing feedback (structured notes or raw transcripts) and produces the next version with a changelog linking every change to the feedback that drove it | After every round of user testing |
+| `/bimstack:productionise [iteration]` | Splits a validated prototype iteration into per-page HTML, removes the alpha-only chrome, generates a comprehensive test suite (E2E, accessibility, security, load), produces a production-readiness report | When a prototype has earned its place through several iteration rounds and the team is ready for beta |
 
 ### Daily work
 
 | Command | What it does | When to run |
 |---|---|---|
-| `/weeknote` | Drafts a weekly note in the GDS/GovTech style – honest, plain, public, with a one-line headline | Every Friday |
-| `/show` | Prepares a show-and-tell session: running order, deck brief, prep checklist | End of every sprint |
-| `/assess` | Walks the 13 Barbados Standards with evidence, producing a self-assessment report | Before every phase gate; annually in live |
-| `/plain-language [text]` | Reviews a piece of citizen-facing text against the GovTech word-swap list, reading age, voice, and tone | Whenever you're writing or reviewing copy |
-| `/threat-model [service]` | Produces (or refreshes) a STRIDE/LINDDUN threat model for a service | Alpha onwards; quarterly in live |
+| `/bimstack:weeknote` | Drafts a weekly note in the GDS/GovTech style – honest, plain, public, with a one-line headline | Every Friday |
+| `/bimstack:show` | Prepares a show-and-tell session: running order, deck brief, prep checklist | End of every sprint |
+| `/bimstack:assess` | Walks the 13 Barbados Standards with evidence, producing a self-assessment report | Before every phase gate; annually in live |
+| `/bimstack:plain-language [text]` | Reviews a piece of citizen-facing text against the GovTech word-swap list, reading age, voice, and tone | Whenever you're writing or reviewing copy |
+| `/bimstack:threat-model [service]` | Produces (or refreshes) a STRIDE/LINDDUN threat model for a service | Alpha onwards; quarterly in live |
 
 When you're not sure which command to run, ask `@delivery-manager` – they'll route you.
 
@@ -268,11 +268,11 @@ Pick a real brief – something your team is genuinely working on. Run the loop.
 
 | Day | Activity | Command |
 |---|---|---|
-| Monday | Run a discovery scaffold on your brief | `/discover [your service]` |
+| Monday | Run a discovery scaffold on your brief | `/bimstack:discover [your service]` |
 | Tuesday | Refine the stakeholder map with your delivery manager; book the first two interviews | `@delivery-manager` |
 | Wednesday | Do the first user interview. Take notes. | – |
 | Thursday | Synthesise the notes; ask the service designer for the first themes | `@service-designer synthesise…` |
-| Friday | Write your first weeknote | `/weeknote` |
+| Friday | Write your first weeknote | `/bimstack:weeknote` |
 
 Don't expect the discovery to be complete by the end of the week. Expect to feel the *shape* of the loop and to have something concrete to discuss with your team and your MDA.
 
@@ -287,33 +287,33 @@ If you finish a discovery in a week, you didn't do a discovery. You did a guess.
 This is the bimstack rapid-prototyping loop. Cycle time is days, not weeks.
 
 ```
-Brief → /build → 3 testable HTML prototypes → user testing → /iterate → v2 → testing → /iterate → v3 → … → /productionise
+Brief → /bimstack:build → 3 testable HTML prototypes → user testing → /bimstack:iterate → v2 → testing → /bimstack:iterate → v3 → … → /bimstack:productionise
 ```
 
-**Step 1 – Build.** Type `/build` followed by your brief or a pointer to your discovery report. The skill produces 2–3 candidate prototypes with the assumptions surfaced inline and a test plan attached.
+**Step 1 – Build.** Type `/bimstack:build` followed by your brief or a pointer to your discovery report. The skill produces 2–3 candidate prototypes with the assumptions surfaced inline and a test plan attached.
 
 ```
-/build renewing a fishing licence in Barbados
+/bimstack:build renewing a fishing licence in Barbados
 ```
 
 **Step 2 – Test.** Run the test plan with 5–6 citizens per prototype, mixed across cohorts. Capture quotes, hesitations, surprises. Don't pick a winner in round 1.
 
-**Step 3 – Iterate.** Feed the feedback to `/iterate`. You can pass:
+**Step 3 – Iterate.** Feed the feedback to `/bimstack:iterate`. You can pass:
 - A structured feedback file with "what worked / what didn't / observed but unresolved" sections, or
-- A folder of raw transcripts – `/iterate` synthesises them into a structured file first, then produces the new iteration
+- A folder of raw transcripts – `/bimstack:iterate` synthesises them into a structured file first, then produces the new iteration
 
 ```
-/iterate prototype-1-phone-first using transcripts in transcripts-round-2/
+/bimstack:iterate prototype-1-phone-first using transcripts in transcripts-round-2/
 ```
 
 The skill produces the next version *and* a `CHANGES.md` linking every change to a specific piece of feedback and the relevant standard.
 
 **Step 4 – Repeat.** Three or four rounds, getting tighter each time. By round 4, one prototype has usually earned its place and the team is ready to take it forward.
 
-**Step 5 – Productionise.** When a prototype is chosen, `/productionise` splits it into per-page HTML, generates the test suite, and produces a Standards-anchored production-readiness report.
+**Step 5 – Productionise.** When a prototype is chosen, `/bimstack:productionise` splits it into per-page HTML, generates the test suite, and produces a Standards-anchored production-readiness report.
 
 ```
-/productionise prototype-1-phone-first/iteration-3
+/bimstack:productionise prototype-1-phone-first/iteration-3
 ```
 
 The worked example at `examples/build-renew-medical-licence/` shows this whole loop end to end.
@@ -324,31 +324,31 @@ Inside the rapid loop, the broader delivery cadence runs in parallel.
 
 **Every Friday:**
 ```
-/weeknote
+/bimstack:weeknote
 ```
 The Delivery Manager drafts the weekly note – honest, plain, public, in your team's voice. Publish it. Even when the week was rough.
 
 **Every second Friday:**
 ```
-/show
+/bimstack:show
 ```
 The Delivery Manager prepares the show-and-tell – running order, deck brief, prep checklist. Run the session live. Invite the MDA, sibling MDAs, civil society. Show real work to real people.
 
 **Before every phase gate (alpha→beta, beta→live):**
 ```
-/assess for the beta gate
+/bimstack:assess for the beta gate
 ```
 The Delivery Manager orchestrates a self-assessment against the 13 Barbados Standards. Every other agent contributes evidence for the standards they own. The output is a structured report with a clear recommendation: proceed, proceed with conditions, do not proceed.
 
 **Whenever you're writing copy:**
 ```
-/plain-language [paste text]
+/bimstack:plain-language [paste text]
 ```
 The Content & Interaction Designer reviews against the GovTech word-swap list, reading age, voice, tone. Produces specific rewrites, not vague advice.
 
 **Alpha onwards, then quarterly:**
 ```
-/threat-model
+/bimstack:threat-model
 ```
 The Cybersecurity Engineer produces or refreshes the threat model with STRIDE and LINDDUN frames, controls assigned to owners with dates.
 
@@ -368,7 +368,7 @@ bimstack will push back. The Service Designer's iron law is "no build without a 
 
 **What if the MDA changes a requirement mid-flight?**
 
-That's normal in government delivery. Use `/iterate` to apply the change, and the changelog will record what the change cost (which user need is now harder to meet, which standard the change pushes against). That way the team has a written audit trail when the next show-and-tell rolls around. Standard 9.
+That's normal in government delivery. Use `/bimstack:iterate` to apply the change, and the changelog will record what the change cost (which user need is now harder to meet, which standard the change pushes against). That way the team has a written audit trail when the next show-and-tell rolls around. Standard 9.
 
 **Is bimstack just for forms?**
 
@@ -388,7 +388,7 @@ Yes. Each agent is a Markdown file with YAML frontmatter in `agents/`. Edit it. 
 
 **What if my brief is just a few sentences and we haven't done research yet?**
 
-Run `/discover` first. Don't run `/build` against an unevidenced brief – you'll get prototypes that look good and meet a need nobody actually has.
+Run `/bimstack:discover` first. Don't run `/bimstack:build` against an unevidenced brief – you'll get prototypes that look good and meet a need nobody actually has.
 
 **Do I need to install all the supporting plugins (`govtech-barbados-*`, `design`, `service-design`)?**
 
@@ -517,17 +517,17 @@ Once you've completed your first day:
 
 **Plain language** – language a 9-year-old can follow. Reading age low; active voice; "you" for the citizen, "we" for the government; civil-service register avoided.
 
-**Prototype** – a throwaway HTML representation of a service, used to test a design hypothesis with citizens. bimstack defaults to producing 2–3 prototypes per `/build` run so the team has real signal, not a single guess.
+**Prototype** – a throwaway HTML representation of a service, used to test a design hypothesis with citizens. bimstack defaults to producing 2–3 prototypes per `/bimstack:build` run so the team has real signal, not a single guess.
 
 **Service Standard / Barbados Digital Service Standards** – the 13 standards every public-facing digital service in Barbados is assessed against before launch. Source of truth: <https://github.com/govtech-bb/Barbados-Digital-Service-Standards>.
 
 **Show-and-tell** – the regular session (typically fortnightly) where the team shows real work to real people. Not a status report. Open to the MDA, sibling MDAs, civil society.
 
-**Standards assessment** – the structured walk through the 13 standards with evidence. Each standard is rated `Met`, `Partly met with a plan`, or `Not met`. bimstack's `/assess` command produces it.
+**Standards assessment** – the structured walk through the 13 standards with evidence. Each standard is rated `Met`, `Partly met with a plan`, or `Not met`. bimstack's `/bimstack:assess` command produces it.
 
 **Trident ID** – the Barbados citizen identity platform. Bimstack assumes services integrate with it for personal-details lookup rather than collecting identity information separately.
 
-**Weeknote** – the short weekly note the team publishes about what they did, what they learned, and what's next. Standard 9. bimstack's `/weeknote` command produces it.
+**Weeknote** – the short weekly note the team publishes about what they did, what they learned, and what's next. Standard 9. bimstack's `/bimstack:weeknote` command produces it.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: prototype-iteration
-description: Take a prototype and either structured feedback or raw research transcripts, produce the next version, with a changelog explaining what changed and why. Handles real-world messy inputs – when given transcripts, the skill synthesises first, then iterates. Use whenever the team has tested a bimstack prototype with users, the MDA, or each other and is ready for the next round. Triggers on "/iterate", "next version of this prototype", "fold this feedback in", "v2 of the prototype", "improve this based on what we heard", "here are the transcripts".
+description: Take a prototype and either structured feedback or raw research transcripts, produce the next version, with a changelog explaining what changed and why. Handles real-world messy inputs – when given transcripts, the skill synthesises first, then iterates. Use whenever the team has tested a bimstack prototype with users, the MDA, or each other and is ready for the next round. Triggers on "/bimstack:iterate", "next version of this prototype", "fold this feedback in", "v2 of the prototype", "improve this based on what we heard", "here are the transcripts".
 ---
 
 # Prototype iteration
@@ -19,7 +19,7 @@ For the larger workflow, read the *Rapid prototyping loop* section in `PLAYBOOK.
 - After an MDA review session
 - After a show-and-tell where the audience surfaced new constraints
 - After an internal critique with the content & interaction designer or service designer
-- When the team has run /build and wants to take one of the candidates forward through several iterations
+- When the team has run /bimstack:build and wants to take one of the candidates forward through several iterations
 
 **Do not use this skill to merge multiple candidates into one.** That's a different decision (typically the "pick the path into beta" decision at the alpha gate). Each candidate iterates on its own terms until one is chosen.
 
@@ -175,7 +175,7 @@ prototype-1-phone-first/
 ├── iteration-1/
 │   ├── index.html  (existing)
 │   ├── assumptions.md
-│   └── (no CHANGES.md – this was the initial /build output)
+│   └── (no CHANGES.md – this was the initial /bimstack:build output)
 ├── iteration-2/
 │   ├── index.html  (new)
 │   ├── assumptions.md  (updated)
@@ -236,7 +236,7 @@ Default cadence:
 
 | Round | Typical activities |
 |---|---|
-| 1 | First version from `/build`; 5–6 users in testing |
+| 1 | First version from `/bimstack:build`; 5–6 users in testing |
 | 2 | Apply critical changes; 5–6 users |
 | 3 | Apply important changes; 8–10 users; first round with under-represented voices specifically recruited |
 | 4 | Refinement and edge cases; usually the last round before picking a path into beta |
@@ -253,4 +253,4 @@ Every iteration's `CHANGES.md` cites the standards that drove the change. Exampl
 > Standard 4 (simple language) – swapped "Resume application" for "Pick up where you left off".
 > Standard 7 (open platforms) – flagged Trident ID session-state behaviour for MIST.
 
-That way the alpha gate `/assess` can trace every iteration back to the standards work.
+That way the alpha gate `/bimstack:assess` can trace every iteration back to the standards work.

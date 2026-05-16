@@ -12,7 +12,7 @@ Before you start, gather these from the user if they haven't already provided th
 - Whether the service has a backend chosen and where it'll be deployed (affects load test thresholds and security headers)
 - Any departures from the skill's defaults the team wants (different test tool, custom load profile, server-rendered templating, etc.)
 
-If the user hasn't provided this context, ask for it briefly using the AskUserQuestion tool. Refuse if the iteration hasn't been through at least one round of user testing – `/productionise` commits a prototype as the chosen path; doing that before testing is premature.
+If the user hasn't provided this context, ask for it briefly using the AskUserQuestion tool. Refuse if the iteration hasn't been through at least one round of user testing – `/bimstack:productionise` commits a prototype as the chosen path; doing that before testing is premature.
 
 Once you have the context, the skill produces (in a `production-[service-slug]/` folder):
 
@@ -26,4 +26,4 @@ Run what's runnable in the current environment: HTML validation, link integrity,
 
 After generation, share the production folder via a computer:// link. Highlight any Standards still at Partly met or Not met, and name the next-step owner (cyber engineer for the threat-model gap, developer for the backend wiring, delivery manager for operational readiness).
 
-Flag explicitly: this skill produces the **front-end's half** of beta-readiness. The backend, the pen test, the runbook, and the operational readiness are separate workflows owned by other agents and other commands (`/threat-model`, `/assess`).
+Flag explicitly: this skill produces the **front-end's half** of beta-readiness. The backend, the pen test, the runbook, and the operational readiness are separate workflows owned by other agents and other commands (`/bimstack:threat-model`, `/bimstack:assess`).

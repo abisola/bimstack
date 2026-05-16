@@ -2,6 +2,14 @@
 
 All notable changes to bimstack will be recorded here. Format inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## [0.1.1] – 2026-05-16
+
+### Fixed
+
+- Plugin manifest: removed the `agents`, `commands`, and `skills` enumeration arrays from `.claude-plugin/plugin.json`. Claude Code auto-discovers these from the `agents/`, `commands/`, and `skills/` directories – the explicit listings were redundant and may have interfered with registration on some installs.
+- Documentation: every `/command` reference now uses the `/bimstack:command` namespaced form that Claude Code actually exposes. The bare `/command` form does not appear in `/` autocomplete (plugin commands surface under the `/bimstack:` prefix).
+- Documentation: agent invocation guidance corrected. Claude Code agents are auto-routed by task description, not `@-mentioned`. Use `/agents` to list available agents.
+
 ## [0.1.0] – 2026-05-16
 
 First public cut. Built end-to-end in a single working session.
@@ -10,7 +18,7 @@ First public cut. Built end-to-end in a single working session.
 
 - **Five agents** – service-designer, content-designer, delivery-manager, developer, cyber-engineer
 - **Five skills** – service-standard-assessment, plain-language-check, weeknote, discovery-kit, show-the-thing
-- **Six slash commands** – `/weeknote`, `/assess`, `/discover`, `/show`, `/plain-language`, `/threat-model`
+- **Six slash commands** – `/bimstack:weeknote`, `/bimstack:assess`, `/bimstack:discover`, `/bimstack:show`, `/bimstack:plain-language`, `/bimstack:threat-model`
 - **Four canonical references** – the 13 Barbados Digital Service Standards, the 10 GOV.UK Design Principles, the GDS Way phases (Discovery → Alpha → Beta → Live), and the GovTech Barbados house style
 - **Top-level documentation** – README, ETHOS, AGENTS, WORKFLOW, CONTRIBUTING
 - **Plugin manifest** at `.claude-plugin/plugin.json`

@@ -7,7 +7,7 @@ You are about to iterate a bimstack prototype based on feedback from user testin
 
 Before you start, gather these from the user if they haven't already provided them:
 
-- The prototype to iterate (path to the existing HTML file, or which of the candidates from a recent /build)
+- The prototype to iterate (path to the existing HTML file, or which of the candidates from a recent /bimstack:build)
 - The input – either:
   - A folder of raw research transcripts (one Markdown file per participant), **or**
   - A pre-structured feedback file with the "what worked / what didn't / what changed / observed but unresolved / constraints surfaced" sections

@@ -1,6 +1,6 @@
 ---
 name: build-for-production
-description: Take a validated prototype iteration and produce a production-ready front-end – per-page HTML files, the published GovBB stylesheet linked (not inlined), the assumptions panel and mock markers stripped, plus a comprehensive test suite (E2E regression, accessibility, security, load). Use when an alpha prototype has earned its place through testing and the team is moving toward beta. Triggers on "/productionise", "build for production", "harden this prototype", "alpha to beta", "production readiness", "regression tests", "load test the service".
+description: Take a validated prototype iteration and produce a production-ready front-end – per-page HTML files, the published GovBB stylesheet linked (not inlined), the assumptions panel and mock markers stripped, plus a comprehensive test suite (E2E regression, accessibility, security, load). Use when an alpha prototype has earned its place through testing and the team is moving toward beta. Triggers on "/bimstack:productionise", "build for production", "harden this prototype", "alpha to beta", "production readiness", "regression tests", "load test the service".
 ---
 
 # Build for production
@@ -27,7 +27,7 @@ For the larger workflow, read `PLAYBOOK.md` – the *alpha to beta transition* s
 
 **Do not use this skill** if:
 
-- The prototype hasn't been tested with users yet (run `/iterate` rounds first)
+- The prototype hasn't been tested with users yet (run `/bimstack:iterate` rounds first)
 - The team is still comparing prototypes (this commits one prototype as the chosen path)
 - The backend isn't yet decided (the test suite assumes a backend; if it's not designed yet, the load tests can't be meaningful)
 
@@ -228,4 +228,4 @@ By the end of the skill's run, the team should have:
 - A `PRODUCTION-READINESS.md` with each Standard marked Met / Partly met / Not met, with evidence
 - A clear next-step list: what the cyber engineer needs to do, what the developer needs to wire up to the backend, what the delivery manager needs to set up for operational readiness
 
-If the report has `Not met` for Standards 5, 6, 11, or 13, the team is not ready for the beta gate. Standard 11 is the most common reason – the front-end can pass and the backend can still fail. That's a `/threat-model` and pen-test conversation, not a `/productionise` retry.
+If the report has `Not met` for Standards 5, 6, 11, or 13, the team is not ready for the beta gate. Standard 11 is the most common reason – the front-end can pass and the backend can still fail. That's a `/bimstack:threat-model` and pen-test conversation, not a `/bimstack:productionise` retry.

@@ -1,6 +1,6 @@
 {
   "name": "bimstack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Five opinionated specialists for building government digital services in Barbados – anchored to the Barbados Digital Service Standards, the GOV.UK Design Principles, and the GDS Way.",
   "author": {
     "name": "GovTech Barbados",
@@ -22,34 +22,6 @@
     "service-standards",
     "alpha.gov.bb",
     "govbb"
-  ],
-  "agents": [
-    "agents/service-designer.md",
-    "agents/content-designer.md",
-    "agents/delivery-manager.md",
-    "agents/developer.md",
-    "agents/cyber-engineer.md"
-  ],
-  "commands": [
-    "commands/build.md",
-    "commands/iterate.md",
-    "commands/productionise.md",
-    "commands/weeknote.md",
-    "commands/assess.md",
-    "commands/discover.md",
-    "commands/show.md",
-    "commands/plain-language.md",
-    "commands/threat-model.md"
-  ],
-  "skills": [
-    "skills/brief-to-prototypes",
-    "skills/prototype-iteration",
-    "skills/build-for-production",
-    "skills/service-standard-assessment",
-    "skills/plain-language-check",
-    "skills/weeknote",
-    "skills/discovery-kit",
-    "skills/show-the-thing"
   ],
   "recommends": {
     "skills": [

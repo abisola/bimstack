@@ -2,7 +2,7 @@
 
 **Round of feedback:** Transcript synthesis, 5 participants (4 doctors + 1 Medical Council administrator), 18–20 June 2026
 **Feedback source:** Raw transcripts in `../transcripts-round-2/`, synthesised to `../feedback-round-2.md`
-**Iterated by:** service-designer (synthesis) + content-designer + developer (iteration), via `/iterate`
+**Iterated by:** service-designer (synthesis) + content-designer + developer (iteration), via `/bimstack:iterate`
 **Date:** 2026-06-22
 
 ## Summary
@@ -105,7 +105,7 @@ Tag in the assumptions panel: `[VERIFY WITH USERS · round 3]`.
 These came up in round 2 but are explicitly out of scope for iteration 3.
 
 - **Hospital pre-fill of CPD records.** AB hoped the prototype had pulled her QEH record in. This is the territory of Prototype 2 (Hospital-mediated bulk renewal); don't fold it into Prototype 1.
-- **Backstage Council interface (Sandra's queue).** SL: *"build me a screen too."* This is a parallel discovery and prototype track. Brief the service designer to scope a Prototype 4 (Council-side) for a separate /build run.
+- **Backstage Council interface (Sandra's queue).** SL: *"build me a screen too."* This is a parallel discovery and prototype track. Brief the service designer to scope a Prototype 4 (Council-side) for a separate /bimstack:build run.
 - **Deceased-doctor process.** MB raised this. Real, painful, important. But not citizen-facing renewal – it's a Council-side service-design intervention. Add to the Council-side backlog.
 - **SMS notification when the certificate is ready.** MA suggested it. Worth designing into iteration 4 once "Application sent" / "Renewal complete" distinction has bedded in.
 - **Specialty-overseas address handling.** The "Use a different address" flow is a mock alert in iteration 3. Design it properly in iteration 4.
@@ -167,7 +167,7 @@ Constraints 6, 8 are deferred to separate workstreams. Constraints 1–5 and 7 a
 
 ## What this iteration deliberately does not do
 
-- **No backstage Council interface designed.** Sandra's whole second concern. That's its own /build run.
+- **No backstage Council interface designed.** Sandra's whole second concern. That's its own /bimstack:build run.
 - **No actual address-override flow.** Currently a mock alert; design properly in iteration 4.
 - **No SMS notification.** Worth testing once "Application sent" lands.
 - **No specialty-overseas category-specific flow.** The category is named but the experience is the same as full registration for now. Add per-category UI in iteration 4 if the round 3 testing supports it.
@@ -201,7 +201,7 @@ This is the loop the user asked for in round 2 of bimstack development. It works
 - Test the six changes with 8 doctors, weighted toward specialists (3), abroad/locum (2), and retired/occasional (2)
 - Verify the 5 new MDA assumptions formally with the Registrar
 - Brief MIST on Trident ID's ability to return registration category
-- Kick off a parallel /build for the Council-side interface (Sandra Layne is the subject-matter expert)
+- Kick off a parallel /bimstack:build for the Council-side interface (Sandra Layne is the subject-matter expert)
 - Cyber engineer refresh: address-override flow touches new data; threat model needs a pass
 
 Round 3 cycle target: feedback by 2026-07-09, iteration 4 by 2026-07-13.

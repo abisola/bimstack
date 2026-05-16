@@ -2,7 +2,7 @@
 
 **Round of feedback:** User testing, 6 doctors across cohorts, 2026-06-03
 **Feedback source:** `../feedback-round-1.md`
-**Iterated by:** content-designer + developer (via `/iterate`)
+**Iterated by:** content-designer + developer (via `/bimstack:iterate`)
 **Date:** 2026-06-04
 
 ## Summary
@@ -151,7 +151,7 @@ From the conversations around round 1, three constraints we didn't know about be
 ## What this iteration deliberately does not do
 
 - **No design system contribution yet.** Changes 1, 2 and 5 introduce patterns (the save-bar, the alt-options block, the multi-file list) that aren't in the published GovBB design system. If they survive round 2 testing they should be proposed back to the design-system team. (`design:design-system` skill.)
-- **No threat-model refresh.** The new contact-update and parish-update flows touch Trident ID data; the cyber engineer should refresh the threat model in parallel before round 3. (`/threat-model`.)
+- **No threat-model refresh.** The new contact-update and parish-update flows touch Trident ID data; the cyber engineer should refresh the threat model in parallel before round 3. (`/bimstack:threat-model`.)
 - **No production code.** Throwaway HTML, still. Production code begins at beta.
 
 ---
