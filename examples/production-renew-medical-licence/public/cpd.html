@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add your CPD records – Renew your medical licence – alpha.gov.bb</title>
+<meta name="description" content="Upload the evidence of your Continuing Professional Development for the last year.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/govbb.css">
+</head>
+<body>
+<a href="#main" class="govbb-skip-link">Skip to main content</a>
+
+<div class="govbb-official-banner" role="region" aria-label="Official notice">This is the official government service of Barbados</div>
+
+<header class="govbb-header" role="banner">
+  <div class="govbb-header__crest" aria-hidden="true">BB</div>
+  <a href="index.html" class="govbb-header__title">alpha.gov.bb</a>
+  <span class="govbb-header__service">Renew your medical licence</span>
+</header>
+
+<div class="govbb-status-banner govbb-status-banner--alpha" role="region" aria-label="Service status">
+  <strong>alpha</strong>
+  <span>This is a prototype service. <a href="feedback.html">Tell us what you think</a>.</span>
+</div>
+
+<main id="main" class="govbb-container">
+  <a href="practice.html" class="govbb-back-link">Back</a>
+
+  <h1>Add your CPD records</h1>
+  <p>Add evidence of the Continuing Professional Development you completed this year. For full registration you need at least <strong>40 hours</strong>.</p>
+
+  <div class="govbb-callout govbb-callout--gold" role="region" aria-label="Notice for specialists">
+    <strong>Specialists – check your College too</strong>
+    <p style="margin-top: 8px; margin-bottom: 0;">If you hold a specialty qualification (MRCPCH, MRCP, MRCS, FAAP, FACS, FRCS, FRCOG and similar), your College usually requires more hours than the Council's minimum, and may require specialty-specific evidence. Filing 40 Council hours doesn't automatically meet your College's requirement.</p>
+  </div>
+
+  <details class="govbb-details">
+    <summary>What counts as CPD?</summary>
+    <div class="body">
+      <p>The Medical Council accepts CPD from:</p>
+      <ul>
+        <li>Hospital mandatory training (resuscitation, infection control, safeguarding)</li>
+        <li>Specialty colleges – RCP, RCS, RCOG, Royal College of GPs, AAFP, AAP, ACOG and similar (UK, US, and Caribbean)</li>
+        <li><strong>Overseas rotations, fellowships, and conferences</strong> – activity completed outside Barbados counts, including AAP / ACOG / European Society conferences</li>
+        <li>UWI Faculty of Medical Sciences short courses</li>
+        <li>Online accredited learning (BMJ Learning, NEJM Knowledge+, UpToDate-CME and similar)</li>
+        <li>Peer-reviewed publications (counted per Medical Council guidance)</li>
+      </ul>
+      <p style="margin-bottom: 0;">Not sure if something counts? Add it anyway and tell us what it was. We'll check.</p>
+    </div>
+  </details>
+
+  <!-- In production these come from the session: previously-uploaded records -->
+  <div class="cpd-list" role="region" aria-label="CPD records you have added">
+    <div class="cpd-list__row">
+      <div>
+        <div class="cpd-list__name">QEH-internal-training-2026.pdf</div>
+        <div class="cpd-list__meta">Public hospital training · 18 hours · 1.2 MB</div>
+      </div>
+      <a href="cpd.html?remove=qeh-2026">Remove</a>
+    </div>
+    <div class="cpd-list__row">
+      <div>
+        <div class="cpd-list__name">MRCP-CPD-record-2026.pdf</div>
+        <div class="cpd-list__meta">Specialty college · 24 hours · 0.6 MB</div>
+      </div>
+      <a href="cpd.html?remove=mrcp-2026">Remove</a>
+    </div>
+  </div>
+
+  <div class="cpd-total" role="status" aria-live="polite">
+    <strong>Total so far: 42 hours.</strong> You're above the 40-hour minimum for full registration.
+  </div>
+
+  <!-- In production: <form method="POST" enctype="multipart/form-data" action="/api/renewal/cpd"> -->
+  <form method="get" action="cpd.html" enctype="multipart/form-data">
+    <div class="cpd-add">
+      <p style="margin-bottom: 12px;">Got more to add? PDF, PNG, or JPG. Photos of paper records are fine.</p>
+      <label class="govbb-skip-link" for="cpd-upload">Upload a CPD record</label>
+      <input type="file" id="cpd-upload" name="cpd_file" accept=".pdf,.png,.jpg,.jpeg">
+    </div>
+  </form>
+
+  <div class="govbb-save-bar">
+    <p><strong>Pause any time.</strong> Your CPD records are saved.</p>
+    <button type="button">Save and come back</button>
+  </div>
+
+  <!-- Continue button goes to next page; in production: <form method="POST" action="/api/renewal/cpd/finalise"> -->
+  <form method="get" action="check.html">
+    <div class="govbb-actions">
+      <button type="submit" class="govbb-btn">Continue</button>
+    </div>
+  </form>
+</main>
+
+<footer class="govbb-footer" role="contentinfo">
+  <div class="govbb-footer__inner">
+    <div>
+      <p style="margin-bottom: 8px;"><strong>alpha.gov.bb</strong></p>
+      <p style="margin-bottom: 0; font-size: 13px;">Built and maintained by GovTech Barbados in partnership with the Medical Council of Barbados.</p>
+    </div>
+    <div>
+      <p style="margin-bottom: 8px;"><a href="help.html">Help</a> · <a href="privacy.html">Privacy</a> · <a href="accessibility.html">Accessibility</a> · <a href="contact.html">Contact</a></p>
+      <p style="margin-bottom: 0; font-size: 13px;">© 2026 Government of Barbados</p>
+    </div>
+    <div class="govbb-footer__crest" aria-hidden="true">BB</div>
+  </div>
+</footer>
+</body>
+</html>

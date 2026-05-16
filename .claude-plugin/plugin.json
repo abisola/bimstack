@@ -1,0 +1,67 @@
+{
+  "name": "bimstack",
+  "version": "0.1.0",
+  "description": "Five opinionated specialists for building government digital services in Barbados – anchored to the Barbados Digital Service Standards, the GOV.UK Design Principles, and the GDS Way.",
+  "author": {
+    "name": "GovTech Barbados",
+    "url": "https://govtech.bb"
+  },
+  "homepage": "https://github.com/abisola/bimstack",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abisola/bimstack.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "govtech",
+    "barbados",
+    "government",
+    "digital-services",
+    "service-design",
+    "gds",
+    "service-standards",
+    "alpha.gov.bb",
+    "govbb"
+  ],
+  "agents": [
+    "agents/service-designer.md",
+    "agents/content-designer.md",
+    "agents/delivery-manager.md",
+    "agents/developer.md",
+    "agents/cyber-engineer.md"
+  ],
+  "commands": [
+    "commands/build.md",
+    "commands/iterate.md",
+    "commands/productionise.md",
+    "commands/weeknote.md",
+    "commands/assess.md",
+    "commands/discover.md",
+    "commands/show.md",
+    "commands/plain-language.md",
+    "commands/threat-model.md"
+  ],
+  "skills": [
+    "skills/brief-to-prototypes",
+    "skills/prototype-iteration",
+    "skills/build-for-production",
+    "skills/service-standard-assessment",
+    "skills/plain-language-check",
+    "skills/weeknote",
+    "skills/discovery-kit",
+    "skills/show-the-thing"
+  ],
+  "recommends": {
+    "skills": [
+      "govtech-barbados-services",
+      "govtech-barbados-forms",
+      "govtech-barbados-presentations",
+      "govtech-barbados-qr-codes"
+    ],
+    "plugins": [
+      "design",
+      "service-design",
+      "frontend-design"
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is this you? – Renew your medical licence – alpha.gov.bb</title>
+<meta name="description" content="Confirm the details we have for you, or tell us if something needs to change.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/govbb.css">
+</head>
+<body>
+<a href="#main" class="govbb-skip-link">Skip to main content</a>
+
+<div class="govbb-official-banner" role="region" aria-label="Official notice">This is the official government service of Barbados</div>
+
+<header class="govbb-header" role="banner">
+  <div class="govbb-header__crest" aria-hidden="true">BB</div>
+  <a href="index.html" class="govbb-header__title">alpha.gov.bb</a>
+  <span class="govbb-header__service">Renew your medical licence</span>
+</header>
+
+<div class="govbb-status-banner govbb-status-banner--alpha" role="region" aria-label="Service status">
+  <strong>alpha</strong>
+  <span>This is a prototype service. <a href="feedback.html">Tell us what you think</a>.</span>
+</div>
+
+<main id="main" class="govbb-container">
+  <a href="id-lookup.html" class="govbb-back-link">Back</a>
+
+  <h1>Is this you?</h1>
+  <p>We found one record matching that Trident ID.</p>
+
+  <!-- In production these values come from the Trident ID + Medical Council register API responses. -->
+  <div class="govbb-id-card" role="region" aria-label="Your registration details">
+    <span class="govbb-id-card__category">Full registration</span>
+    <h3>Dr. Sarah K. Williams</h3>
+    <dl>
+      <dt>NRN</dt><dd>750814-9384</dd>
+      <dt>Parish</dt><dd>St. Michael</dd>
+      <dt>Email</dt><dd>s.williams@example.bb</dd>
+      <dt>Phone</dt><dd>246-555-0143</dd>
+      <dt>Registration</dt><dd>No. MB-04857 · Expires 31 Dec 2026</dd>
+      <dt>Renewal fee</dt><dd><strong>BBD 200</strong> for this category</dd>
+    </dl>
+  </div>
+
+  <div class="govbb-callout">
+    <strong>Where should we send your certificate?</strong>
+    <p style="margin-top: 8px; margin-bottom: 12px;">We'll email it to s.williams@example.bb. If you'd like to use a different email or have anything physical posted to a different address while you renew, let us know.</p>
+    <a href="address-override.html" class="govbb-btn govbb-btn--alt">Use a different address</a>
+  </div>
+
+  <!-- In production: <form method="POST" action="/api/renewal/confirm-identity"> -->
+  <form method="get" action="practice.html">
+    <input type="hidden" name="confirm" value="yes">
+    <div class="govbb-actions">
+      <button type="submit" class="govbb-btn">Yes, that's me</button>
+    </div>
+  </form>
+
+  <section class="alt-options" aria-labelledby="alt-heading">
+    <h2 id="alt-heading">Something not right?</h2>
+    <div class="alt-row">
+      <a href="contact-update.html">My email or phone is out of date</a>
+      <p>You can update these without going back. We'll send your certificate to the corrected email.</p>
+    </div>
+    <div class="alt-row">
+      <a href="category-update.html">My registration category is wrong</a>
+      <p>If you're listed as Full but you should be Restricted, Temporary or another category, we'll route this to the Council to fix.</p>
+    </div>
+    <div class="alt-row">
+      <a href="parish-update.html">My parish is wrong</a>
+      <p>We'll update your Trident ID record while you renew.</p>
+    </div>
+    <div class="alt-row">
+      <a href="identity-help.html">This isn't me</a>
+      <p>If we've matched the wrong person, stop and call the Medical Council on 246-535-7400.</p>
+    </div>
+  </section>
+
+  <div class="govbb-save-bar">
+    <p><strong>Pause any time.</strong> We'll save your progress.</p>
+    <button type="button">Save and come back</button>
+  </div>
+</main>
+
+<footer class="govbb-footer" role="contentinfo">
+  <div class="govbb-footer__inner">
+    <div>
+      <p style="margin-bottom: 8px;"><strong>alpha.gov.bb</strong></p>
+      <p style="margin-bottom: 0; font-size: 13px;">Built and maintained by GovTech Barbados in partnership with the Medical Council of Barbados.</p>
+    </div>
+    <div>
+      <p style="margin-bottom: 8px;"><a href="help.html">Help</a> · <a href="privacy.html">Privacy</a> · <a href="accessibility.html">Accessibility</a> · <a href="contact.html">Contact</a></p>
+      <p style="margin-bottom: 0; font-size: 13px;">© 2026 Government of Barbados</p>
+    </div>
+    <div class="govbb-footer__crest" aria-hidden="true">BB</div>
+  </div>
+</footer>
+</body>
+</html>

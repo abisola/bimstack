@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirm your medical licence renewal – alpha.gov.bb</title>
+<!--
+  bimstack prototype – Variant 2 of 3 – Hospital-mediated bulk renewal
+  Hypothesis: the doctor's employer (QEH, polyclinic, private hospital) pre-fills
+  most of the renewal from HR data and CPD records the hospital already holds.
+  The doctor's job becomes confirmation, not data entry. Single-tap renewal
+  where possible. Trades off speed for institutional doctors against private-
+  practice doctors who don't have this support.
+  Anchored to Standards 1, 3, 4, 5, 7. Standard 2 implications surfaced.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bb-navy: #00267F; --bb-gold: #FFC726; --bb-off-white: #F7F3F3; --bb-charcoal: #2C2C2C; --bb-white: #FFFFFF; --bb-grey-light: #DDDDDD; --bb-grey-mid: #777777; --bb-error: #B71C1C; --bb-green: #00703C; --bb-success-bg: #E8F5E9; }
+html { font-size: 16px; }
+body { font-family: 'Figtree', system-ui, sans-serif; background: var(--bb-off-white); color: var(--bb-charcoal); line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
+.govbb-official-banner { background: var(--bb-charcoal); color: var(--bb-white); font-size: 13px; padding: 8px 24px; text-align: center; letter-spacing: 0.5px; }
+.govbb-header { background: var(--bb-gold); padding: 18px 24px; display: flex; align-items: center; gap: 24px; border-bottom: 3px solid var(--bb-charcoal); }
+.govbb-header__crest { width: 36px; height: 36px; background: var(--bb-navy); color: var(--bb-gold); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; letter-spacing: 1px; }
+.govbb-header__title { font-size: 22px; font-weight: 700; color: var(--bb-charcoal); text-decoration: none; }
+.govbb-header__service { font-size: 14px; color: var(--bb-charcoal); margin-left: auto; }
+.govbb-status-banner--alpha { background: #FCF1D4; padding: 12px 24px; font-size: 15px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--bb-grey-light); }
+.govbb-status-banner--alpha strong { background: var(--bb-charcoal); color: var(--bb-white); padding: 3px 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+.bimstack-banner { background: var(--bb-navy); color: var(--bb-white); padding: 10px 24px; font-size: 14px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.bimstack-banner__variant { font-weight: 600; }
+.bimstack-banner button { background: var(--bb-gold); color: var(--bb-charcoal); border: 0; padding: 6px 14px; font-weight: 700; font-size: 13px; cursor: pointer; font-family: inherit; }
+main.govbb-container { max-width: 720px; width: 100%; margin: 32px auto; padding: 0 24px; flex: 1; }
+.govbb-back-link { display: inline-block; color: var(--bb-navy); margin-bottom: 24px; font-size: 16px; text-decoration: underline; cursor: pointer; background: none; border: 0; padding: 0; font-family: inherit; }
+.govbb-back-link::before { content: "← "; }
+h1 { font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+h2 { font-size: 22px; font-weight: 600; margin-bottom: 12px; margin-top: 24px; }
+p { margin-bottom: 16px; font-size: 18px; }
+ul.govbb-list { padding-left: 20px; margin-bottom: 16px; }
+ul.govbb-list li { font-size: 18px; margin-bottom: 6px; }
+.govbb-form-group { margin-bottom: 28px; }
+.govbb-label, .govbb-fieldset-legend { display: block; font-weight: 700; margin-bottom: 6px; color: var(--bb-charcoal); }
+.govbb-label { font-size: 20px; }
+.govbb-fieldset-legend { font-size: 24px; margin-bottom: 12px; }
+.govbb-hint { display: block; color: var(--bb-grey-mid); margin-bottom: 12px; font-size: 16px; }
+.govbb-input { width: 100%; max-width: 480px; padding: 10px 12px; font-size: 18px; border: 2px solid var(--bb-charcoal); font-family: inherit; background: var(--bb-white); }
+.govbb-input:focus { outline: 4px solid var(--bb-gold); }
+.govbb-btn { background: var(--bb-green); color: var(--bb-white); border: 0; padding: 12px 24px; font-size: 18px; font-weight: 600; cursor: pointer; font-family: inherit; box-shadow: 0 2px 0 #00451f; }
+.govbb-btn:hover { background: #00873d; }
+.govbb-btn:active { transform: translateY(2px); box-shadow: none; }
+.govbb-btn--secondary { background: var(--bb-charcoal); box-shadow: 0 2px 0 #000; }
+.govbb-btn--massive { padding: 22px 40px; font-size: 24px; width: 100%; }
+.govbb-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+.govbb-summary-list { border: 1px solid var(--bb-grey-light); margin-bottom: 24px; background: var(--bb-white); }
+.govbb-summary-list__row { display: flex; border-bottom: 1px solid var(--bb-grey-light); padding: 16px; font-size: 16px; }
+.govbb-summary-list__row:last-child { border-bottom: 0; }
+.govbb-summary-list__key { width: 35%; font-weight: 700; padding-right: 12px; }
+.govbb-summary-list__value { width: 45%; padding-right: 12px; }
+.govbb-summary-list__actions { width: 20%; text-align: right; }
+.govbb-summary-list__actions a { color: var(--bb-navy); cursor: pointer; text-decoration: underline; }
+.govbb-callout { background: var(--bb-white); border-left: 6px solid var(--bb-navy); padding: 16px 20px; margin-bottom: 24px; }
+.govbb-callout--success { background: var(--bb-success-bg); border-color: var(--bb-green); }
+.govbb-callout--gold { background: #FFF8DC; border-color: var(--bb-gold); }
+.govbb-callout--info { background: #E3F2FD; border-color: var(--bb-navy); }
+.govbb-hero {
+  background: var(--bb-navy); color: var(--bb-white); padding: 32px 24px; margin: -32px -24px 24px;
+}
+.govbb-hero h1 { color: var(--bb-white); margin-bottom: 8px; }
+.govbb-hero p { font-size: 18px; margin-bottom: 0; opacity: 0.9; }
+.govbb-hero__institution { display: inline-block; background: var(--bb-gold); color: var(--bb-charcoal); padding: 4px 12px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+.govbb-footer { background: var(--bb-navy); color: var(--bb-white); padding: 32px 24px; margin-top: 48px; font-size: 14px; }
+.govbb-footer__inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; }
+.govbb-footer a { color: var(--bb-gold); }
+.govbb-footer__crest { width: 40px; height: 40px; background: var(--bb-gold); color: var(--bb-navy); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; }
+.bimstack-assumptions { position: fixed; right: -440px; top: 0; width: 420px; height: 100vh; background: #FFFBEA; border-left: 3px solid var(--bb-charcoal); padding: 24px; overflow-y: auto; transition: right 0.25s ease-out; z-index: 100; box-shadow: -2px 0 8px rgba(0,0,0,0.1); }
+.bimstack-assumptions--open { right: 0; }
+.bimstack-assumptions__close { position: absolute; top: 16px; right: 16px; background: var(--bb-charcoal); color: var(--bb-white); border: 0; width: 32px; height: 32px; font-size: 18px; cursor: pointer; font-family: inherit; }
+.bimstack-assumptions h2 { font-size: 20px; margin-bottom: 12px; margin-top: 0; }
+.bimstack-assumptions p { font-size: 13px; margin-bottom: 12px; }
+.bimstack-assumptions ul { padding-left: 0; list-style: none; }
+.bimstack-assumptions li { margin-bottom: 14px; font-size: 13px; line-height: 1.5; }
+.bimstack-assumptions h3 { font-size: 13px; margin: 18px 0 8px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--bb-grey-mid); }
+.verify-tag { display: inline-block; background: var(--bb-charcoal); color: var(--bb-gold); font-size: 10px; padding: 2px 6px; font-weight: 700; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.verify-tag--user { background: var(--bb-navy); color: var(--bb-white); }
+.verify-tag--mda { background: #8B4513; color: var(--bb-white); }
+.verify-tag--mist { background: #4A148C; color: var(--bb-white); }
+.verify-tag--policy { background: var(--bb-error); color: var(--bb-white); }
+.verify-tag--data { background: var(--bb-green); color: var(--bb-white); }
+.verify-tag--gap { background: var(--bb-gold); color: var(--bb-charcoal); }
+.fake-data { display: inline-block; background: #FFF8DC; border: 1px dashed var(--bb-grey-mid); padding: 1px 4px; font-size: 0.95em; }
+.page { display: none; }
+.page--active { display: block; }
+@media (max-width: 720px) {
+  main.govbb-container { padding: 0 16px; margin: 16px auto; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 20px; }
+  p, ul.govbb-list li { font-size: 17px; }
+  .bimstack-assumptions { width: 100vw; right: -100vw; }
+  .govbb-summary-list__row { flex-direction: column; }
+  .govbb-summary-list__key, .govbb-summary-list__value, .govbb-summary-list__actions { width: 100%; padding: 4px 0; text-align: left; }
+  .govbb-header { flex-wrap: wrap; }
+  .govbb-header__service { margin-left: 0; flex-basis: 100%; }
+  .govbb-hero { margin: -16px -16px 16px; padding: 24px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="govbb-official-banner">This is the official government service of Barbados</div>
+
+<header class="govbb-header">
+  <div class="govbb-header__crest">BB</div>
+  <a href="#" class="govbb-header__title">alpha.gov.bb</a>
+  <span class="govbb-header__service">Renew your medical licence</span>
+</header>
+
+<div class="govbb-status-banner govbb-status-banner--alpha">
+  <strong>alpha</strong>
+  <span>This is a prototype. Don't use it for a real renewal.</span>
+</div>
+
+<div class="bimstack-banner">
+  <span><span class="bimstack-banner__variant">Variant 2 of 3</span> · Hospital-mediated bulk renewal</span>
+  <button onclick="toggleAssumptions()">Show assumptions (15)</button>
+</div>
+
+<main class="govbb-container">
+
+  <!-- PAGE: START / HERO -->
+  <section id="page-start" class="page page--active">
+    <div class="govbb-hero">
+      <span class="govbb-hero__institution">From Queen Elizabeth Hospital</span>
+      <h1>Confirm your medical licence renewal</h1>
+      <p>QEH has prepared your annual renewal. Check the details below and confirm.</p>
+    </div>
+
+    <p>Most doctors finish this in under <strong>2 minutes</strong> because almost everything is already filled in for you.</p>
+
+    <h2>What we've done for you</h2>
+    <ul class="govbb-list">
+      <li>Pulled your registration details from the Medical Council</li>
+      <li>Pulled your CPD record from the QEH staff portal</li>
+      <li>Pre-paid the BBD 200 fee from your CPD allowance</li>
+    </ul>
+
+    <h2>What you need to do</h2>
+    <ul class="govbb-list">
+      <li>Check everything is right</li>
+      <li>Confirm any specialist CPD we don't already have</li>
+      <li>Tap <strong>Confirm renewal</strong></li>
+    </ul>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn govbb-btn--start" onclick="goTo('page-review')" style="padding: 16px 32px; font-size: 20px;">Start</button>
+    </div>
+
+    <p style="margin-top: 32px; font-size: 14px; color: var(--bb-grey-mid);">Not a QEH doctor, or in private practice as well? <a href="#" onclick="goTo('page-not-applicable'); return false;" style="color: var(--bb-navy);">Use the individual renewal instead</a>.</p>
+  </section>
+
+  <!-- PAGE: REVIEW -->
+  <section id="page-review" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-start')">Back</button>
+
+    <h1>Review your details</h1>
+    <p>Everything below has been pulled from QEH HR and the Medical Council register.</p>
+
+    <div class="govbb-summary-list">
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Name</div>
+        <div class="govbb-summary-list__value fake-data">Dr. Sarah K. Williams</div>
+        <div class="govbb-summary-list__actions"><a onclick="alert('Would open Trident ID correction flow.')">Change</a></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">NRN</div>
+        <div class="govbb-summary-list__value fake-data">750814-9384</div>
+        <div class="govbb-summary-list__actions"></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Email</div>
+        <div class="govbb-summary-list__value fake-data">s.williams@example.bb</div>
+        <div class="govbb-summary-list__actions"><a onclick="alert('Would let you change your contact email.')">Change</a></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Phone</div>
+        <div class="govbb-summary-list__value fake-data">246-555-0143</div>
+        <div class="govbb-summary-list__actions"><a onclick="alert('Would let you change your contact phone.')">Change</a></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Primary practice</div>
+        <div class="govbb-summary-list__value">Queen Elizabeth Hospital · Internal Medicine</div>
+        <div class="govbb-summary-list__actions"><a onclick="alert('Would let you flag a change.')">Change</a></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">CPD hours</div>
+        <div class="govbb-summary-list__value">42 hours <span style="color: var(--bb-green);">✓ above 40-hour minimum</span></div>
+        <div class="govbb-summary-list__actions"><a onclick="goTo('page-cpd-add')">Add more</a></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Renewal fee</div>
+        <div class="govbb-summary-list__value">BBD 200.00 · <span style="color: var(--bb-green);">Paid from QEH CPD allowance</span></div>
+        <div class="govbb-summary-list__actions"></div>
+      </div>
+    </div>
+
+    <div class="govbb-callout govbb-callout--info">
+      <strong>Got specialist CPD we don't know about?</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">Royal College, MRCP, MRCS – anything outside your QEH record. <a href="#" onclick="goTo('page-cpd-add'); return false;" style="color: var(--bb-navy);">Add it now</a>.</p>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" style="padding: 16px 32px; font-size: 20px;" onclick="goTo('page-confirm')">Looks good</button>
+    </div>
+  </section>
+
+  <!-- PAGE: CPD ADD -->
+  <section id="page-cpd-add" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-review')">Back</button>
+
+    <h1>Add specialist CPD</h1>
+    <p>Add anything that isn't already in your QEH record. We'll add it to the 42 hours we have on file.</p>
+
+    <div class="govbb-form-group">
+      <label class="govbb-label" for="cpd-source">Where did the CPD come from?</label>
+      <input class="govbb-input" type="text" id="cpd-source" placeholder="e.g. Royal College of Physicians" autocomplete="off">
+    </div>
+
+    <div class="govbb-form-group">
+      <label class="govbb-label" for="cpd-hours">How many hours?</label>
+      <input class="govbb-input govbb-input--short" type="text" id="cpd-hours" placeholder="e.g. 12" autocomplete="off">
+    </div>
+
+    <div class="govbb-form-group">
+      <label class="govbb-label" for="cpd-evidence">Upload evidence</label>
+      <span class="govbb-hint">A certificate, an email, or a photo of a paper record. PDF, PNG or JPG.</span>
+      <input type="file" id="cpd-evidence" accept=".pdf,.png,.jpg,.jpeg">
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-review')">Add and go back</button>
+      <button class="govbb-btn govbb-btn--secondary" onclick="goTo('page-review')">Cancel</button>
+    </div>
+  </section>
+
+  <!-- PAGE: CONFIRM -->
+  <section id="page-confirm" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-review')">Back</button>
+
+    <h1>Confirm your renewal</h1>
+    <p>By tapping the button below you confirm:</p>
+    <ul class="govbb-list">
+      <li>The details on the previous page are correct</li>
+      <li>The CPD record reflects all your professional development this year</li>
+      <li>You are fit to practise medicine in Barbados</li>
+    </ul>
+
+    <p style="font-size: 14px; color: var(--bb-grey-mid);">Submitting a false declaration is an offence under the Medical Profession Act.</p>
+
+    <div style="margin-top: 32px;">
+      <button class="govbb-btn govbb-btn--massive" onclick="goTo('page-confirmation')">Confirm renewal</button>
+    </div>
+  </section>
+
+  <!-- PAGE: CONFIRMATION -->
+  <section id="page-confirmation" class="page">
+    <div class="govbb-callout govbb-callout--success">
+      <h1 style="margin-bottom: 8px;">Renewal complete</h1>
+      <p style="margin-bottom: 0;">Reference number <strong class="fake-data">MED-2026-04857</strong>. Done in <strong>1 minute 42 seconds</strong>.</p>
+    </div>
+
+    <h2>What happens next</h2>
+    <ul class="govbb-list">
+      <li>Your new certificate goes to <span class="fake-data">s.williams@example.bb</span> within <strong>2 working days</strong>.</li>
+      <li>QEH HR is notified that your registration is current.</li>
+      <li>The public register is updated tomorrow morning.</li>
+    </ul>
+
+    <h2>Tell us what you thought</h2>
+    <p>This is an alpha. Your feedback shapes what we build next.</p>
+    <div class="govbb-actions">
+      <button class="govbb-btn govbb-btn--secondary" onclick="alert('Feedback form in a real service.')">Give feedback</button>
+    </div>
+  </section>
+
+  <!-- PAGE: NOT APPLICABLE -->
+  <section id="page-not-applicable" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-start')">Back</button>
+
+    <h1>You'll need the individual renewal</h1>
+    <p>The hospital-mediated renewal only works for doctors employed by a public hospital or polyclinic.</p>
+
+    <p>If you're in private practice, a locum, or split between public and private work, you'll want the individual renewal instead. It takes a bit longer (about 10 minutes) but it covers every case.</p>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="alert('Would link to Variant 1 prototype.')">Go to the individual renewal</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="govbb-footer">
+  <div class="govbb-footer__inner">
+    <div>
+      <p style="margin-bottom: 8px;"><strong>alpha.gov.bb</strong></p>
+      <p style="margin-bottom: 0; font-size: 13px;">Built and maintained by GovTech Barbados in partnership with the Medical Council and QEH.</p>
+    </div>
+    <div>
+      <p style="margin-bottom: 8px;"><a href="#">Help</a> · <a href="#">Privacy</a> · <a href="#">Accessibility</a> · <a href="#">Contact</a></p>
+      <p style="margin-bottom: 0; font-size: 13px;">© 2026 Government of Barbados</p>
+    </div>
+    <div class="govbb-footer__crest">BB</div>
+  </div>
+</footer>
+
+<aside id="assumptions" class="bimstack-assumptions" aria-hidden="true">
+  <button class="bimstack-assumptions__close" onclick="toggleAssumptions()" aria-label="Close assumptions panel">×</button>
+  <h2>Assumptions to verify</h2>
+  <p>This variant trades speed for institutional coverage. Almost every assumption depends on hospital HR data being good enough to base a regulatory decision on.</p>
+
+  <h3>About the user</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> Doctors will trust the hospital's HR record to be correct enough for a regulatory renewal. (Standard 11)</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> A "single tap to confirm" feels reassuring, not flippant, given the legal weight. (Standard 4, Standard 11)</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> Doctors actually want their hospital paying the renewal fee from a CPD allowance – or do they prefer to pay personally to keep autonomy?</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> The "specialist CPD I haven't told the hospital about" addition is discoverable enough.</li>
+  </ul>
+
+  <h3>About the institutions</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--mda">Verify with MDA</span> The Medical Council will accept hospital HR records as a primary data source, not just doctor self-attestation.</li>
+    <li><span class="verify-tag verify-tag--mda">Verify with MDA</span> QEH HR (and polyclinic HR) hold CPD hours in a form that's regulatorily complete – or only training the hospital itself runs.</li>
+    <li><span class="verify-tag verify-tag--mda">Verify with MDA</span> Bulk renewal payments from a hospital CPD allowance are permitted under current finance rules.</li>
+    <li><span class="verify-tag verify-tag--mist">Verify with MIST</span> An integration with QEH HR can be built without each hospital running a bespoke ETL.</li>
+  </ul>
+
+  <h3>About the cohorts</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--data">Verify with data</span> What fraction of doctors in Barbados are employed by a public institution that could pre-fill? (Discovery indicates ~50–70% but unconfirmed.)</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> Private-practice doctors don't feel second-class when sent to the individual flow. (Standard 3)</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> Locums and overseas-rotation doctors aren't worse off than today.</li>
+    <li><span class="verify-tag verify-tag--gap">Known gap</span> Specialist colleges (RCP, RCS, AAFP) and the data flow from them.</li>
+  </ul>
+
+  <h3>About policy</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--policy">Verify with policy</span> The legal "declaration of fitness to practise" can be made via a digital confirmation, not a wet signature.</li>
+    <li><span class="verify-tag verify-tag--policy">Verify with policy</span> A hospital can act as a fiduciary in submitting a doctor's regulatory renewal – or is this a Medical Council–doctor relationship only?</li>
+    <li><span class="verify-tag verify-tag--policy">Verify with policy</span> Data sharing between QEH HR, Medical Council, and Trident ID is permitted under the Data Protection Act for this purpose. (Standard 11)</li>
+  </ul>
+</aside>
+
+<script>
+function goTo(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('page--active'));
+  var el = document.getElementById(id);
+  if (el) { el.classList.add('page--active'); window.scrollTo(0, 0); }
+}
+function toggleAssumptions() {
+  var panel = document.getElementById('assumptions');
+  panel.classList.toggle('bimstack-assumptions--open');
+  panel.setAttribute('aria-hidden', !panel.classList.contains('bimstack-assumptions--open'));
+}
+</script>
+
+</body>
+</html>

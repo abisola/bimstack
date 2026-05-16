@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check your answers – Renew your medical licence – alpha.gov.bb</title>
+<meta name="description" content="Review your answers before you submit your application.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/govbb.css">
+</head>
+<body>
+<a href="#main" class="govbb-skip-link">Skip to main content</a>
+
+<div class="govbb-official-banner" role="region" aria-label="Official notice">This is the official government service of Barbados</div>
+
+<header class="govbb-header" role="banner">
+  <div class="govbb-header__crest" aria-hidden="true">BB</div>
+  <a href="index.html" class="govbb-header__title">alpha.gov.bb</a>
+  <span class="govbb-header__service">Renew your medical licence</span>
+</header>
+
+<div class="govbb-status-banner govbb-status-banner--alpha" role="region" aria-label="Service status">
+  <strong>alpha</strong>
+  <span>This is a prototype service. <a href="feedback.html">Tell us what you think</a>.</span>
+</div>
+
+<main id="main" class="govbb-container">
+  <a href="cpd.html" class="govbb-back-link">Back</a>
+
+  <h1>Check your answers</h1>
+  <p>Make sure everything's right before you submit your application.</p>
+
+  <!-- In production values come from the renewal session -->
+  <dl class="govbb-summary-list" role="region" aria-label="Your renewal details">
+    <div class="govbb-summary-list__row">
+      <dt class="govbb-summary-list__key">Practising context</dt>
+      <dd class="govbb-summary-list__value">In Barbados, actively practising</dd>
+      <div class="govbb-summary-list__actions"><a href="context.html">Change</a></div>
+    </div>
+    <div class="govbb-summary-list__row">
+      <dt class="govbb-summary-list__key">Name</dt>
+      <dd class="govbb-summary-list__value">Dr. Sarah K. Williams</dd>
+      <div class="govbb-summary-list__actions"><a href="confirm-details.html">Change</a></div>
+    </div>
+    <div class="govbb-summary-list__row">
+      <dt class="govbb-summary-list__key">Registration category</dt>
+      <dd class="govbb-summary-list__value">Full registration</dd>
+      <div class="govbb-summary-list__actions"></div>
+    </div>
+    <div class="govbb-summary-list__row">
+      <dt class="govbb-summary-list__key">Trident ID</dt>
+      <dd class="govbb-summary-list__value">750814-9384</dd>
+      <div class="govbb-summary-list__actions"><a href="id-lookup.html">Change</a></div>
+    </div>
+    <div class="govbb-summary-list__row">
+      <dt class="govbb-summary-list__key">Where you practise</dt>
+      <dd class="govbb-summary-list__value">Public hospital</dd>
+      <div class="govbb-summary-list__actions"><a href="practice.html">Change</a></div>
+    </div>
+    <div class="govbb-summary-list__row">
+      <dt class="govbb-summary-list__key">CPD records (2)</dt>
+      <dd class="govbb-summary-list__value">42 hours total – above the 40-hour minimum</dd>
+      <div class="govbb-summary-list__actions"><a href="cpd.html">Change</a></div>
+    </div>
+    <div class="govbb-summary-list__row">
+      <dt class="govbb-summary-list__key">Renewal fee</dt>
+      <dd class="govbb-summary-list__value"><strong>BBD 200.00</strong></dd>
+      <div class="govbb-summary-list__actions"></div>
+    </div>
+  </dl>
+
+  <h2>What happens after you pay</h2>
+  <ol class="timeline" role="list">
+    <li class="timeline__step timeline__step--current">
+      <div class="timeline__marker" aria-hidden="true">1</div>
+      <div class="timeline__body">
+        <strong>You submit your application</strong>
+        <p>This is the next step. You pay the fee and we record your application.</p>
+      </div>
+    </li>
+    <li class="timeline__step">
+      <div class="timeline__marker" aria-hidden="true">2</div>
+      <div class="timeline__body">
+        <strong>The Council reviews it</strong>
+        <p>Usually 1 to 5 working days. We may email you if we need anything else.</p>
+      </div>
+    </li>
+    <li class="timeline__step">
+      <div class="timeline__marker" aria-hidden="true">3</div>
+      <div class="timeline__body">
+        <strong>We email you your certificate</strong>
+        <p>Once the Council approves, your renewal is complete and you'll get your certificate by email.</p>
+      </div>
+    </li>
+  </ol>
+
+  <!-- In production: <form method="POST" action="/api/renewal/payment-start"> -->
+  <form method="get" action="payment.html">
+    <div class="govbb-actions">
+      <button type="submit" class="govbb-btn">Continue to payment</button>
+    </div>
+  </form>
+</main>
+
+<footer class="govbb-footer" role="contentinfo">
+  <div class="govbb-footer__inner">
+    <div>
+      <p style="margin-bottom: 8px;"><strong>alpha.gov.bb</strong></p>
+      <p style="margin-bottom: 0; font-size: 13px;">Built and maintained by GovTech Barbados in partnership with the Medical Council of Barbados.</p>
+    </div>
+    <div>
+      <p style="margin-bottom: 8px;"><a href="help.html">Help</a> · <a href="privacy.html">Privacy</a> · <a href="accessibility.html">Accessibility</a> · <a href="contact.html">Contact</a></p>
+      <p style="margin-bottom: 0; font-size: 13px;">© 2026 Government of Barbados</p>
+    </div>
+    <div class="govbb-footer__crest" aria-hidden="true">BB</div>
+  </div>
+</footer>
+</body>
+</html>

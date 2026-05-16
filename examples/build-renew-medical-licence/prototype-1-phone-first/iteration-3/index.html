@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renew your medical licence – alpha.gov.bb</title>
+<!--
+  bimstack prototype – Variant 1 of 3 – Phone-first individual renewal
+  ITERATION 3 of N – produced by /iterate on 5 transcripts in transcripts-round-2/
+  Date: 2026-06-22
+  Anchored to Barbados Digital Service Standards: 1, 2, 3, 4, 5, 7
+  Anchored to GOV.UK Design Principles: 1, 4, 5, 6, 7, 8
+  Changes from iteration 2 documented in CHANGES.md (this folder).
+  Synthesis of the transcripts in feedback-round-2.md (one level up).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bb-navy: #00267F; --bb-gold: #FFC726; --bb-off-white: #F7F3F3; --bb-charcoal: #2C2C2C; --bb-white: #FFFFFF; --bb-grey-light: #DDDDDD; --bb-grey-mid: #777777; --bb-error: #B71C1C; --bb-green: #00703C; --bb-success-bg: #E8F5E9; --bb-info-bg: #E3F2FD; }
+html { font-size: 16px; }
+body { font-family: 'Figtree', system-ui, sans-serif; background: var(--bb-off-white); color: var(--bb-charcoal); line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
+.govbb-official-banner { background: var(--bb-charcoal); color: var(--bb-white); font-size: 13px; padding: 8px 24px; text-align: center; letter-spacing: 0.5px; }
+.govbb-header { background: var(--bb-gold); padding: 18px 24px; display: flex; align-items: center; gap: 24px; border-bottom: 3px solid var(--bb-charcoal); }
+.govbb-header__crest { width: 36px; height: 36px; background: var(--bb-navy); color: var(--bb-gold); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; letter-spacing: 1px; }
+.govbb-header__title { font-size: 22px; font-weight: 700; color: var(--bb-charcoal); text-decoration: none; }
+.govbb-header__service { font-size: 14px; color: var(--bb-charcoal); margin-left: auto; }
+.govbb-status-banner--alpha { background: #FCF1D4; padding: 12px 24px; font-size: 15px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--bb-grey-light); }
+.govbb-status-banner--alpha strong { background: var(--bb-charcoal); color: var(--bb-white); padding: 3px 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+.bimstack-banner { background: var(--bb-navy); color: var(--bb-white); padding: 10px 24px; font-size: 14px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.bimstack-banner__variant { font-weight: 600; }
+.bimstack-banner__iter { background: var(--bb-gold); color: var(--bb-charcoal); padding: 2px 8px; font-weight: 700; font-size: 11px; margin-left: 6px; text-transform: uppercase; }
+.bimstack-banner button { background: var(--bb-gold); color: var(--bb-charcoal); border: 0; padding: 6px 14px; font-weight: 700; font-size: 13px; cursor: pointer; font-family: inherit; }
+main.govbb-container { max-width: 720px; width: 100%; margin: 32px auto; padding: 0 24px; flex: 1; }
+.govbb-back-link { display: inline-block; color: var(--bb-navy); margin-bottom: 24px; font-size: 16px; text-decoration: underline; cursor: pointer; background: none; border: 0; padding: 0; font-family: inherit; }
+.govbb-back-link::before { content: "← "; }
+h1 { font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--bb-charcoal); }
+h2 { font-size: 22px; font-weight: 600; margin-bottom: 12px; margin-top: 24px; }
+p { margin-bottom: 16px; font-size: 18px; }
+ul.govbb-list { padding-left: 20px; margin-bottom: 16px; }
+ul.govbb-list li { font-size: 18px; margin-bottom: 6px; }
+.govbb-form-group { margin-bottom: 28px; }
+.govbb-label, .govbb-fieldset-legend { display: block; font-weight: 700; margin-bottom: 6px; color: var(--bb-charcoal); }
+.govbb-label { font-size: 20px; }
+.govbb-fieldset-legend { font-size: 24px; margin-bottom: 12px; }
+.govbb-hint { display: block; color: var(--bb-grey-mid); margin-bottom: 12px; font-size: 16px; }
+.govbb-input { width: 100%; max-width: 480px; padding: 10px 12px; font-size: 18px; border: 2px solid var(--bb-charcoal); font-family: inherit; background: var(--bb-white); }
+.govbb-input:focus { outline: 4px solid var(--bb-gold); }
+.govbb-input--short { max-width: 220px; }
+.govbb-radio { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px; padding: 14px 14px; border: 2px solid transparent; cursor: pointer; }
+.govbb-radio:hover { background: #FFF8DC; }
+.govbb-radio input[type="radio"] { width: 22px; height: 22px; margin-top: 3px; flex-shrink: 0; }
+.govbb-radio label { font-size: 18px; cursor: pointer; flex: 1; }
+.govbb-btn { background: var(--bb-green); color: var(--bb-white); border: 0; padding: 12px 24px; font-size: 18px; font-weight: 600; cursor: pointer; font-family: inherit; box-shadow: 0 2px 0 #00451f; }
+.govbb-btn:hover { background: #00873d; }
+.govbb-btn:active { transform: translateY(2px); box-shadow: none; }
+.govbb-btn--secondary { background: var(--bb-charcoal); box-shadow: 0 2px 0 #000; }
+.govbb-btn--alt { background: var(--bb-white); color: var(--bb-charcoal); border: 2px solid var(--bb-charcoal); box-shadow: 0 2px 0 var(--bb-charcoal); }
+.govbb-btn--alt:hover { background: #FFF8DC; }
+.govbb-btn--start { padding: 16px 32px; font-size: 20px; }
+.govbb-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+.govbb-save-bar { background: #FFFBEA; border-left: 4px solid var(--bb-gold); padding: 14px 18px; margin-bottom: 24px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.govbb-save-bar p { margin: 0; font-size: 16px; flex: 1; min-width: 220px; }
+.govbb-save-bar button { background: var(--bb-charcoal); color: var(--bb-white); border: 0; padding: 8px 16px; font-weight: 600; font-size: 14px; cursor: pointer; font-family: inherit; }
+.alt-options { background: var(--bb-white); border: 2px solid var(--bb-charcoal); padding: 20px; margin-bottom: 24px; }
+.alt-options h2 { margin-top: 0; }
+.alt-options .alt-row { padding: 12px 0; border-bottom: 1px solid var(--bb-grey-light); }
+.alt-options .alt-row:last-child { border-bottom: 0; }
+.alt-options .alt-row button { background: none; border: 0; padding: 0; color: var(--bb-navy); text-decoration: underline; font-size: 18px; cursor: pointer; font-family: inherit; }
+.alt-options .alt-row p { font-size: 15px; margin: 4px 0 0; color: var(--bb-grey-mid); }
+details.govbb-details { background: var(--bb-white); border: 2px solid var(--bb-charcoal); padding: 0; margin-bottom: 24px; }
+details.govbb-details summary { padding: 14px 18px; cursor: pointer; font-weight: 700; font-size: 17px; }
+details.govbb-details[open] summary { border-bottom: 1px solid var(--bb-grey-light); }
+details.govbb-details .body { padding: 16px 18px; font-size: 16px; }
+details.govbb-details .body ul { padding-left: 20px; margin: 8px 0; }
+details.govbb-details .body li { font-size: 16px; margin-bottom: 6px; }
+.cpd-list { background: var(--bb-white); border: 1px solid var(--bb-grey-light); margin-bottom: 16px; }
+.cpd-list__row { padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--bb-grey-light); gap: 12px; flex-wrap: wrap; }
+.cpd-list__row:last-child { border-bottom: 0; }
+.cpd-list__name { font-weight: 600; }
+.cpd-list__meta { color: var(--bb-grey-mid); font-size: 14px; display: block; margin-top: 2px; }
+.cpd-list__remove { background: none; border: 0; color: var(--bb-error); cursor: pointer; font-family: inherit; font-size: 14px; text-decoration: underline; }
+.cpd-add { border: 2px dashed var(--bb-charcoal); padding: 18px; background: var(--bb-white); text-align: center; }
+.cpd-add input { font-size: 16px; }
+.cpd-total { background: var(--bb-success-bg); border-left: 4px solid var(--bb-green); padding: 12px 16px; margin-bottom: 16px; font-size: 16px; }
+.govbb-summary-list { border: 1px solid var(--bb-grey-light); margin-bottom: 24px; background: var(--bb-white); }
+.govbb-summary-list__row { display: flex; border-bottom: 1px solid var(--bb-grey-light); padding: 16px; font-size: 16px; }
+.govbb-summary-list__row:last-child { border-bottom: 0; }
+.govbb-summary-list__key { width: 35%; font-weight: 700; padding-right: 12px; }
+.govbb-summary-list__value { width: 45%; padding-right: 12px; }
+.govbb-summary-list__actions { width: 20%; text-align: right; }
+.govbb-summary-list__actions a { color: var(--bb-navy); cursor: pointer; text-decoration: underline; }
+.govbb-callout { background: var(--bb-white); border-left: 6px solid var(--bb-navy); padding: 16px 20px; margin-bottom: 24px; }
+.govbb-callout--success { background: var(--bb-success-bg); border-color: var(--bb-green); }
+.govbb-callout--gold { background: #FFF8DC; border-color: var(--bb-gold); }
+.govbb-callout--info { background: var(--bb-info-bg); border-color: var(--bb-navy); }
+.govbb-callout--warning { background: #FFF8DC; border-color: var(--bb-charcoal); }
+.govbb-id-card { background: var(--bb-white); border: 2px solid var(--bb-navy); padding: 20px; margin-bottom: 24px; }
+.govbb-id-card h3 { font-size: 22px; margin-bottom: 12px; }
+.govbb-id-card dl { display: grid; grid-template-columns: 140px 1fr; gap: 6px 12px; font-size: 16px; }
+.govbb-id-card dt { font-weight: 700; }
+.govbb-id-card__category { display: inline-block; background: var(--bb-navy); color: var(--bb-white); padding: 2px 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.govbb-fee-callout { background: var(--bb-white); border: 2px solid var(--bb-charcoal); padding: 16px 20px; margin: 24px 0; display: flex; align-items: center; gap: 16px; }
+.govbb-fee-callout__amount { font-size: 28px; font-weight: 700; color: var(--bb-charcoal); }
+.govbb-fee-callout__label { font-size: 16px; }
+/* ITER 3: timeline component for "what happens next" */
+.timeline { background: var(--bb-white); border: 1px solid var(--bb-grey-light); padding: 4px 0; margin-bottom: 24px; }
+.timeline__step { padding: 16px 18px; display: flex; gap: 16px; border-bottom: 1px solid var(--bb-grey-light); }
+.timeline__step:last-child { border-bottom: 0; }
+.timeline__marker { width: 32px; height: 32px; background: var(--bb-grey-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; font-size: 14px; }
+.timeline__step--done .timeline__marker { background: var(--bb-green); color: var(--bb-white); }
+.timeline__step--current .timeline__marker { background: var(--bb-navy); color: var(--bb-white); }
+.timeline__body strong { display: block; font-size: 17px; margin-bottom: 2px; }
+.timeline__body p { margin: 0; font-size: 15px; color: var(--bb-grey-mid); }
+.govbb-footer { background: var(--bb-navy); color: var(--bb-white); padding: 32px 24px; margin-top: 48px; font-size: 14px; }
+.govbb-footer__inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; }
+.govbb-footer a { color: var(--bb-gold); }
+.govbb-footer__crest { width: 40px; height: 40px; background: var(--bb-gold); color: var(--bb-navy); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; }
+.bimstack-assumptions { position: fixed; right: -440px; top: 0; width: 420px; height: 100vh; background: #FFFBEA; border-left: 3px solid var(--bb-charcoal); padding: 24px; overflow-y: auto; transition: right 0.25s ease-out; z-index: 100; box-shadow: -2px 0 8px rgba(0,0,0,0.1); }
+.bimstack-assumptions--open { right: 0; }
+.bimstack-assumptions__close { position: absolute; top: 16px; right: 16px; background: var(--bb-charcoal); color: var(--bb-white); border: 0; width: 32px; height: 32px; font-size: 18px; cursor: pointer; font-family: inherit; }
+.bimstack-assumptions h2 { font-size: 20px; margin-bottom: 12px; margin-top: 0; }
+.bimstack-assumptions p { font-size: 13px; margin-bottom: 12px; }
+.bimstack-assumptions ul { padding-left: 0; list-style: none; }
+.bimstack-assumptions li { margin-bottom: 14px; font-size: 13px; line-height: 1.5; }
+.bimstack-assumptions h3 { font-size: 13px; margin: 18px 0 8px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--bb-grey-mid); }
+.bimstack-assumptions .resolved { opacity: 0.7; }
+.bimstack-assumptions .resolved strong { color: var(--bb-green); }
+.verify-tag { display: inline-block; background: var(--bb-charcoal); color: var(--bb-gold); font-size: 10px; padding: 2px 6px; font-weight: 700; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.verify-tag--user { background: var(--bb-navy); color: var(--bb-white); }
+.verify-tag--mda { background: #8B4513; color: var(--bb-white); }
+.verify-tag--mist { background: #4A148C; color: var(--bb-white); }
+.verify-tag--policy { background: var(--bb-error); color: var(--bb-white); }
+.verify-tag--data { background: var(--bb-green); color: var(--bb-white); }
+.verify-tag--gap { background: var(--bb-gold); color: var(--bb-charcoal); }
+.verify-tag--resolved { background: var(--bb-green); color: var(--bb-white); }
+.fake-data { display: inline-block; background: #FFF8DC; border: 1px dashed var(--bb-grey-mid); padding: 1px 4px; font-size: 0.95em; }
+.page { display: none; }
+.page--active { display: block; }
+@media (max-width: 720px) {
+  main.govbb-container { padding: 0 16px; margin: 16px auto; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 20px; }
+  p, ul.govbb-list li { font-size: 17px; }
+  .bimstack-assumptions { width: 100vw; right: -100vw; }
+  .govbb-summary-list__row { flex-direction: column; }
+  .govbb-summary-list__key, .govbb-summary-list__value, .govbb-summary-list__actions { width: 100%; padding: 4px 0; text-align: left; }
+  .govbb-header { flex-wrap: wrap; }
+  .govbb-header__service { margin-left: 0; flex-basis: 100%; }
+  .govbb-id-card dl { grid-template-columns: 1fr; }
+  .govbb-id-card dt { margin-top: 8px; }
+}
+@media print {
+  .govbb-official-banner, .govbb-status-banner--alpha, .bimstack-banner, .bimstack-assumptions, .govbb-back-link, .govbb-actions, .govbb-footer { display: none !important; }
+  body { background: white; }
+  main.govbb-container { max-width: none; padding: 0; margin: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="govbb-official-banner">This is the official government service of Barbados</div>
+
+<header class="govbb-header">
+  <div class="govbb-header__crest">BB</div>
+  <a href="#" class="govbb-header__title">alpha.gov.bb</a>
+  <span class="govbb-header__service">Renew your medical licence</span>
+</header>
+
+<div class="govbb-status-banner govbb-status-banner--alpha">
+  <strong>alpha</strong>
+  <span>This is a prototype. Don't use it for a real renewal.</span>
+</div>
+
+<div class="bimstack-banner">
+  <span><span class="bimstack-banner__variant">Variant 1 of 3</span> · Phone-first individual renewal<span class="bimstack-banner__iter">Iteration 3</span></span>
+  <button onclick="toggleAssumptions()">Show assumptions (16)</button>
+</div>
+
+<main class="govbb-container">
+
+  <!-- PAGE: START -->
+  <section id="page-start" class="page page--active">
+    <h1>Renew your medical licence</h1>
+    <p>Use this service to renew your annual practising licence with the Medical Council of Barbados.</p>
+
+    <div class="govbb-fee-callout">
+      <div class="govbb-fee-callout__amount">BBD 200</div>
+      <div>
+        <div class="govbb-fee-callout__label"><strong>Renewal fee (full registration)</strong></div>
+        <div style="font-size: 14px; color: var(--bb-grey-mid);">Provisional, temporary, restricted and specialty-overseas registrations have different fees. We'll show you the right one once we know your category.</div>
+      </div>
+    </div>
+
+    <h2>Before you start</h2>
+    <p>You'll need:</p>
+    <ul class="govbb-list">
+      <li>Your Trident ID number, or your National Registration Number</li>
+      <li>Your CPD record for the last year (you can add more than one file)</li>
+      <li>A debit or credit card for the renewal fee</li>
+    </ul>
+
+    <h2>How long it takes</h2>
+    <p>Most doctors finish in about 10 minutes. You can pause and come back any time.</p>
+
+    <!-- ITER 3 CHANGE: explicit "you can do this from anywhere" microcopy (JW) -->
+    <div class="govbb-callout govbb-callout--info">
+      <strong>You can do this from anywhere in the world</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">If you're on rotation, on holiday, or working overseas, the service works the same way.</p>
+    </div>
+
+    <h2>When you'll get your certificate</h2>
+    <p>We'll email your new certificate once the Medical Council has reviewed your application. Most renewals are reviewed within 5 working days.</p>
+
+    <div class="govbb-callout govbb-callout--gold">
+      <strong>If you can't renew online</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">Call the Medical Council on <span class="fake-data">[FAKE NUMBER] 246-555-0100</span> or book an appointment.</p>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn govbb-btn--start" onclick="goTo('page-context')">Start now</button>
+    </div>
+  </section>
+
+  <!-- ITER 3 NEW PAGE: page-context (handles abroad / retired cases early) -->
+  <section id="page-context" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-start')">Back</button>
+
+    <fieldset style="border: 0;">
+      <legend class="govbb-fieldset-legend">Where will you be practising this year?</legend>
+      <span class="govbb-hint">Pick the one that's most true for you right now. We'll adjust the rest of the renewal to match.</span>
+
+      <div class="govbb-radio">
+        <input type="radio" id="ctx-bb" name="context" value="bb" checked onchange="document.getElementById('ctx-bb-note').hidden = false; document.getElementById('ctx-abroad-note').hidden = true; document.getElementById('ctx-occasional-note').hidden = true;">
+        <label for="ctx-bb"><strong>I'm in Barbados, actively practising</strong><br><span style="color: var(--bb-grey-mid); font-size: 16px;">Full registration, active practice in a hospital, polyclinic, or private clinic.</span></label>
+      </div>
+
+      <div class="govbb-radio">
+        <input type="radio" id="ctx-abroad" name="context" value="abroad" onchange="document.getElementById('ctx-bb-note').hidden = true; document.getElementById('ctx-abroad-note').hidden = false; document.getElementById('ctx-occasional-note').hidden = true;">
+        <label for="ctx-abroad"><strong>I'm working abroad temporarily</strong><br><span style="color: var(--bb-grey-mid); font-size: 16px;">Locum, rotation, fellowship, or short-term posting outside Barbados. You'll still need to renew here.</span></label>
+      </div>
+
+      <div class="govbb-radio">
+        <input type="radio" id="ctx-occasional" name="context" value="occasional" onchange="document.getElementById('ctx-bb-note').hidden = true; document.getElementById('ctx-abroad-note').hidden = true; document.getElementById('ctx-occasional-note').hidden = false;">
+        <label for="ctx-occasional"><strong>I'm retired or only practising occasionally</strong><br><span style="color: var(--bb-grey-mid); font-size: 16px;">Limited practice, favours for old patients, or covering occasionally for colleagues.</span></label>
+      </div>
+    </fieldset>
+
+    <div id="ctx-bb-note" class="govbb-callout govbb-callout--info">
+      <strong>Standard renewal flow</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">You'll go through the standard renewal: identity, practice details, CPD, payment, confirmation.</p>
+    </div>
+
+    <div id="ctx-abroad-note" class="govbb-callout govbb-callout--info" hidden>
+      <strong>What's different if you're abroad</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">We'll let you give us a different email or postal address while you're away. CPD from your overseas rotation counts – the next step explains what we accept.</p>
+    </div>
+
+    <div id="ctx-occasional-note" class="govbb-callout govbb-callout--warning" hidden>
+      <strong>You may need a different category</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">The Medical Council has a <em>restricted</em> registration category for retired or occasional doctors. The CPD requirement and fee are different. Call the Council on <span class="fake-data">246-555-0100</span> before you continue if you're not sure. You can still complete the form below and we'll route it to the right reviewer.</p>
+    </div>
+
+    <div class="govbb-save-bar">
+      <p><strong>Pause any time.</strong> We'll save your progress and email you a link to come back.</p>
+      <button onclick="alert('Would save and email a link.')">Save and come back</button>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-id-lookup')">Continue</button>
+    </div>
+  </section>
+
+  <!-- PAGE: ID LOOKUP -->
+  <section id="page-id-lookup" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-context')">Back</button>
+
+    <h1>What's your Trident ID?</h1>
+    <div class="govbb-form-group">
+      <label class="govbb-label" for="trident-id">Trident ID number</label>
+      <span class="govbb-hint">This is the 12-digit number on your Trident ID card, or your National Registration Number (NRN).</span>
+      <input class="govbb-input govbb-input--short" id="trident-id" type="text" value="750814-9384" autocomplete="off">
+    </div>
+
+    <p style="font-size: 14px; color: var(--bb-grey-mid);">We'll look up your name, contact details, and current registration category. You won't have to type them in.</p>
+
+    <div class="govbb-save-bar">
+      <p><strong>Pause any time.</strong> We'll save your progress.</p>
+      <button onclick="alert('Would save and email a link.')">Save and come back</button>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-confirm-details')">Continue</button>
+    </div>
+  </section>
+
+  <!-- PAGE: CONFIRM DETAILS (ITER 3: now includes category, address override) -->
+  <section id="page-confirm-details" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-id-lookup')">Back</button>
+
+    <h1>Is this you?</h1>
+    <p>We found one record matching that Trident ID.</p>
+
+    <div class="govbb-id-card">
+      <span class="govbb-id-card__category">Full registration</span>
+      <h3><span class="fake-data">Dr. Sarah K. Williams</span></h3>
+      <dl>
+        <dt>NRN</dt><dd class="fake-data">750814-9384</dd>
+        <dt>Parish</dt><dd class="fake-data">St. Michael</dd>
+        <dt>Email</dt><dd class="fake-data">s.williams@example.bb</dd>
+        <dt>Phone</dt><dd class="fake-data">246-555-0143</dd>
+        <dt>Registration</dt><dd>No. <span class="fake-data">MB-04857</span> · Expires <span class="fake-data">31 Dec 2026</span></dd>
+        <dt>Renewal fee</dt><dd><strong>BBD 200</strong> for this category</dd>
+      </dl>
+    </div>
+
+    <!-- ITER 3 CHANGE: explicit correspondence-address override -->
+    <div class="govbb-callout">
+      <strong>Where should we send your certificate?</strong>
+      <p style="margin-top: 8px; margin-bottom: 12px;">We'll email it to <span class="fake-data">s.williams@example.bb</span>. If you'd like to use a different email or have anything physical posted to a different address while you renew, let us know.</p>
+      <button class="govbb-btn govbb-btn--alt" onclick="alert('Would open an address-override form.')">Use a different address</button>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-practice')">Yes, that's me</button>
+    </div>
+
+    <div class="alt-options">
+      <h2 style="font-size: 18px;">Something not right?</h2>
+      <div class="alt-row">
+        <button onclick="alert('Would go to a contact-update flow.')">My email or phone is out of date</button>
+        <p>You can update these without going back. We'll send your certificate to the corrected email.</p>
+      </div>
+      <div class="alt-row">
+        <button onclick="alert('Would go to a category-update flow.')">My registration category is wrong</button>
+        <p>If you're listed as Full but you should be Restricted, Temporary or another category, we'll route this to the Council to fix.</p>
+      </div>
+      <div class="alt-row">
+        <button onclick="alert('Would go to a parish-update flow.')">My parish is wrong</button>
+        <p>We'll update your Trident ID record while you renew.</p>
+      </div>
+      <div class="alt-row">
+        <button onclick="alert('Would go to an identity-verification escalation path.')">This isn't me</button>
+        <p>If we've matched the wrong person, stop and call the Medical Council on <span class="fake-data">246-555-0100</span>.</p>
+      </div>
+    </div>
+
+    <div class="govbb-save-bar">
+      <p><strong>Pause any time.</strong> We'll save your progress.</p>
+      <button onclick="alert('Would save and email a link.')">Save and come back</button>
+    </div>
+  </section>
+
+  <!-- PAGE: PRACTICE -->
+  <section id="page-practice" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-confirm-details')">Back</button>
+
+    <fieldset style="border: 0;">
+      <legend class="govbb-fieldset-legend">Where do you practise?</legend>
+      <span class="govbb-hint">Choose the option that best describes where most of your work happens.</span>
+
+      <div class="govbb-radio">
+        <input type="radio" id="practice-hospital" name="practice" value="hospital" checked>
+        <label for="practice-hospital"><strong>Public hospital</strong><br><span style="color: var(--bb-grey-mid); font-size: 16px;">QEH, Psychiatric Hospital, or other public hospital</span></label>
+      </div>
+      <div class="govbb-radio">
+        <input type="radio" id="practice-polyclinic" name="practice" value="polyclinic">
+        <label for="practice-polyclinic"><strong>Polyclinic</strong><br><span style="color: var(--bb-grey-mid); font-size: 16px;">Any of the eight polyclinics across the island</span></label>
+      </div>
+      <div class="govbb-radio">
+        <input type="radio" id="practice-private" name="practice" value="private">
+        <label for="practice-private"><strong>Private practice</strong><br><span style="color: var(--bb-grey-mid); font-size: 16px;">Private clinic or private hospital</span></label>
+      </div>
+      <div class="govbb-radio">
+        <input type="radio" id="practice-multiple" name="practice" value="multiple">
+        <label for="practice-multiple"><strong>More than one of these</strong></label>
+      </div>
+    </fieldset>
+
+    <div class="govbb-save-bar">
+      <p><strong>Pause any time.</strong> Your answers so far are saved.</p>
+      <button onclick="alert('Would save and email a link.')">Save and come back</button>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-cpd')">Continue</button>
+    </div>
+  </section>
+
+  <!-- PAGE: CPD (ITER 3: overseas CPD added; specialist note) -->
+  <section id="page-cpd" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-practice')">Back</button>
+
+    <h1>Add your CPD records</h1>
+    <p>Add evidence of the Continuing Professional Development you completed this year. For full registration you need at least <strong>40 hours</strong>.</p>
+
+    <!-- ITER 3 CHANGE: specialty CPD note -->
+    <div class="govbb-callout govbb-callout--gold">
+      <strong>Specialists – check your College too</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">If you hold a specialty qualification (MRCPCH, MRCP, MRCS, FAAP, FACS, FRCS, FRCOG and similar), your College usually requires more hours than the Council's minimum, and may require specialty-specific evidence. Filing 40 Council hours doesn't automatically meet your College's requirement.</p>
+    </div>
+
+    <details class="govbb-details">
+      <summary>What counts as CPD?</summary>
+      <div class="body">
+        <p>The Medical Council accepts CPD from:</p>
+        <ul>
+          <li>Hospital mandatory training (resuscitation, infection control, safeguarding)</li>
+          <li>Specialty colleges – RCP, RCS, RCOG, Royal College of GPs, AAFP, AAP, ACOG and similar (UK, US, and Caribbean)</li>
+          <li><strong>Overseas rotations, fellowships, and conferences</strong> – activity completed outside Barbados counts, including AAP / ACOG / European Society conferences</li>
+          <li>UWI Faculty of Medical Sciences short courses</li>
+          <li>Online accredited learning (BMJ Learning, NEJM Knowledge+, UpToDate-CME and similar)</li>
+          <li>Peer-reviewed publications (counted per Medical Council guidance)</li>
+        </ul>
+        <p style="margin-bottom: 0;">Not sure if something counts? Add it anyway and tell us what it was. We'll check.</p>
+      </div>
+    </details>
+
+    <div class="cpd-list">
+      <div class="cpd-list__row">
+        <div>
+          <div class="cpd-list__name">QEH-internal-training-2026.pdf</div>
+          <div class="cpd-list__meta">Public hospital training · 18 hours · 1.2 MB</div>
+        </div>
+        <button class="cpd-list__remove" onclick="alert('Would remove this record.')">Remove</button>
+      </div>
+      <div class="cpd-list__row">
+        <div>
+          <div class="cpd-list__name">MRCP-CPD-record-2026.pdf</div>
+          <div class="cpd-list__meta">Specialty college · 24 hours · 0.6 MB</div>
+        </div>
+        <button class="cpd-list__remove" onclick="alert('Would remove this record.')">Remove</button>
+      </div>
+    </div>
+
+    <div class="cpd-total">
+      <strong>Total so far: 42 hours.</strong> You're above the 40-hour minimum for full registration.
+    </div>
+
+    <div class="cpd-add">
+      <p style="margin-bottom: 12px;">Got more to add? PDF, PNG, or JPG. Photos of paper records are fine.</p>
+      <input type="file" accept=".pdf,.png,.jpg,.jpeg">
+    </div>
+
+    <div class="govbb-save-bar">
+      <p><strong>Pause any time.</strong> Your CPD records are saved.</p>
+      <button onclick="alert('Would save and email a link.')">Save and come back</button>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-check')">Continue</button>
+    </div>
+  </section>
+
+  <!-- PAGE: CHECK YOUR ANSWERS (ITER 3: review timing microcopy) -->
+  <section id="page-check" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-cpd')">Back</button>
+
+    <h1>Check your answers</h1>
+    <p>Make sure everything's right before you submit your application.</p>
+
+    <div class="govbb-summary-list">
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Practising context</div>
+        <div class="govbb-summary-list__value">In Barbados, actively practising</div>
+        <div class="govbb-summary-list__actions"><a onclick="goTo('page-context')">Change</a></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Name</div>
+        <div class="govbb-summary-list__value fake-data">Dr. Sarah K. Williams</div>
+        <div class="govbb-summary-list__actions"><a onclick="goTo('page-confirm-details')">Change</a></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Registration category</div>
+        <div class="govbb-summary-list__value">Full registration</div>
+        <div class="govbb-summary-list__actions"></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Trident ID</div>
+        <div class="govbb-summary-list__value fake-data">750814-9384</div>
+        <div class="govbb-summary-list__actions"><a onclick="goTo('page-id-lookup')">Change</a></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Where you practise</div>
+        <div class="govbb-summary-list__value">Public hospital</div>
+        <div class="govbb-summary-list__actions"><a onclick="goTo('page-practice')">Change</a></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">CPD records (2)</div>
+        <div class="govbb-summary-list__value">42 hours total <span style="color: var(--bb-green);">✓</span></div>
+        <div class="govbb-summary-list__actions"><a onclick="goTo('page-cpd')">Change</a></div>
+      </div>
+      <div class="govbb-summary-list__row">
+        <div class="govbb-summary-list__key">Renewal fee</div>
+        <div class="govbb-summary-list__value"><strong>BBD 200.00</strong></div>
+        <div class="govbb-summary-list__actions"></div>
+      </div>
+    </div>
+
+    <!-- ITER 3 CHANGE: explain what happens next BEFORE the doctor pays -->
+    <h2>What happens after you pay</h2>
+    <div class="timeline">
+      <div class="timeline__step timeline__step--current">
+        <div class="timeline__marker">1</div>
+        <div class="timeline__body">
+          <strong>You submit your application</strong>
+          <p>This is the next step. You pay the fee and we record your application.</p>
+        </div>
+      </div>
+      <div class="timeline__step">
+        <div class="timeline__marker">2</div>
+        <div class="timeline__body">
+          <strong>The Council reviews it</strong>
+          <p>Usually 1–5 working days. We may email you if we need anything else.</p>
+        </div>
+      </div>
+      <div class="timeline__step">
+        <div class="timeline__marker">3</div>
+        <div class="timeline__body">
+          <strong>We email you your certificate</strong>
+          <p>Once the Council approves, your renewal is complete and you'll get your certificate by email.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-payment')">Continue to payment</button>
+    </div>
+  </section>
+
+  <!-- PAGE: PAYMENT -->
+  <section id="page-payment" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-check')">Back</button>
+
+    <h1>Pay your renewal fee</h1>
+
+    <div class="govbb-callout">
+      <strong>Renewal fee for full registration</strong>
+      <p style="margin-top: 8px; margin-bottom: 0; font-size: 24px;"><strong>BBD 200.00</strong></p>
+    </div>
+
+    <p>You'll be taken to the secure GovTech Barbados payment page. We accept debit and credit cards.</p>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-confirmation')">Pay now</button>
+    </div>
+
+    <p style="font-size: 14px; color: var(--bb-grey-mid); margin-top: 24px;">Your payment is handled by the shared GovTech Barbados payment gateway. We don't store your card details.</p>
+  </section>
+
+  <!-- PAGE: CONFIRMATION (ITER 3: "Application sent" not "Renewal complete"; explicit review timeline) -->
+  <section id="page-confirmation" class="page">
+    <div class="govbb-callout govbb-callout--success">
+      <h1 style="margin-bottom: 8px;">Application sent</h1>
+      <p style="margin-bottom: 0;">Your reference number is <strong class="fake-data">MED-2026-04857</strong>. The Council is reviewing your application.</p>
+    </div>
+
+    <h2>What happens next</h2>
+    <div class="timeline">
+      <div class="timeline__step timeline__step--done">
+        <div class="timeline__marker">✓</div>
+        <div class="timeline__body">
+          <strong>Application sent</strong>
+          <p>You did this just now. We have everything we need to begin the review.</p>
+        </div>
+      </div>
+      <div class="timeline__step timeline__step--current">
+        <div class="timeline__marker">2</div>
+        <div class="timeline__body">
+          <strong>Council review – usually 1 to 5 working days</strong>
+          <p>A renewals officer checks your CPD and your registration record. We'll email you if we need anything else. You don't need to do anything right now.</p>
+        </div>
+      </div>
+      <div class="timeline__step">
+        <div class="timeline__marker">3</div>
+        <div class="timeline__body">
+          <strong>Renewal complete</strong>
+          <p>Once approved, we'll email your new certificate to <span class="fake-data">s.williams@example.bb</span> and your name appears on the public register the next morning.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="govbb-callout govbb-callout--gold">
+      <strong>Keep a copy of this page</strong>
+      <p style="margin-top: 8px; margin-bottom: 12px;">A lot of doctors print this page or save it as a PDF in case the email goes missing.</p>
+      <button class="govbb-btn govbb-btn--alt" onclick="window.print()">Print this page</button>
+    </div>
+
+    <h2>If you don't hear from us</h2>
+    <p>If you haven't heard back in <strong>7 working days</strong>, call <span class="fake-data">246-555-0100</span> with your reference number and we'll find out what's happened.</p>
+
+    <h2>Tell us what you thought</h2>
+    <p>This is an alpha. Your feedback shapes what we build next.</p>
+    <div class="govbb-actions">
+      <button class="govbb-btn govbb-btn--secondary" onclick="alert('In a real service this would open a short feedback form.')">Give feedback</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="govbb-footer">
+  <div class="govbb-footer__inner">
+    <div>
+      <p style="margin-bottom: 8px;"><strong>alpha.gov.bb</strong></p>
+      <p style="margin-bottom: 0; font-size: 13px;">Built and maintained by GovTech Barbados in partnership with the Medical Council of Barbados.</p>
+    </div>
+    <div>
+      <p style="margin-bottom: 8px;"><a href="#">Help</a> · <a href="#">Privacy</a> · <a href="#">Accessibility</a> · <a href="#">Contact</a></p>
+      <p style="margin-bottom: 0; font-size: 13px;">© 2026 Government of Barbados</p>
+    </div>
+    <div class="govbb-footer__crest">BB</div>
+  </div>
+</footer>
+
+<aside id="assumptions" class="bimstack-assumptions" aria-hidden="true">
+  <button class="bimstack-assumptions__close" onclick="toggleAssumptions()" aria-label="Close assumptions panel">×</button>
+  <h2>Assumptions to verify – round 3</h2>
+  <p>Updated after round 2 (5 transcripts: 4 doctors + 1 Medical Council renewals officer). 5 assumptions resolved from round 2; 5 new ones added.</p>
+
+  <h3>About the user</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--user">Verify with users · NEW</span> The three-path "where are you renewing from?" question handles 95% of the cohort. (Surfaced from JW and MB in round 2.)</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users · NEW</span> Specialists notice the "check your College too" callout and act on it. (Surfaced from MA.)</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users · NEW</span> The "Application sent" + 3-step timeline makes the review process clear without alarming the doctor about delay. (Surfaced from AB and SL.)</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users · NEW</span> Doctors abroad trust the "you can do this from anywhere" microcopy enough to start the flow. (Surfaced from JW.)</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> The address-for-correspondence override is discoverable for doctors abroad. (Designed but not yet tested.)</li>
+  </ul>
+
+  <h3>About the Council</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--mda">Verify with MDA · NEW</span> The 5 registration categories (full, provisional, temporary, restricted, specialty-overseas) match what the Council's register actually holds. (Sandra Layne reported this verbally; confirm formally.)</li>
+    <li><span class="verify-tag verify-tag--mda">Verify with MDA · NEW</span> The fee schedule per category is fixed and known so the prototype can pre-fill it.</li>
+    <li><span class="verify-tag verify-tag--mda">Verify with MDA · NEW</span> Overseas CPD activity (AAP, ACOG, European Society etc.) is genuinely accepted as the prototype now claims.</li>
+    <li><span class="verify-tag verify-tag--mda">Verify with MDA</span> The 1–5 working day review SLA in the timeline matches what the Council can sustain at peak (Oct–Dec 70% volume).</li>
+    <li><span class="verify-tag verify-tag--data">Verify with data</span> Current renewal turnaround time (mean and 90th percentile). Used to validate the timeline microcopy.</li>
+  </ul>
+
+  <h3>About the platform</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--mist">Verify with MIST</span> Trident ID returns the registration category and the per-category fee, or this comes from the Council's register via a second call.</li>
+    <li><span class="verify-tag verify-tag--mist">Verify with MIST · SHARPENED</span> Trident ID session state lasts long enough to support the 30-day "save and come back" promise. (Round 2: SL confirmed peak handling matters.)</li>
+    <li><span class="verify-tag verify-tag--gap">Known gap</span> Address-for-correspondence override flow isn't fully designed – currently a mock alert.</li>
+    <li><span class="verify-tag verify-tag--gap">Known gap · NEW</span> The backstage Council interface (Sandra's queue) is missing entirely. Needs its own discovery and prototype track.</li>
+  </ul>
+
+  <h3>About policy</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--policy">Verify with policy</span> Personal data flow between Trident ID, Medical Council, and the payment gateway is permitted under the Data Protection Act for this purpose.</li>
+    <li><span class="verify-tag verify-tag--policy">Verify with policy</span> Doctors can legally complete the renewal entirely digitally – no wet signature required.</li>
+  </ul>
+
+  <h3>Resolved in round 2</h3>
+  <ul>
+    <li class="resolved"><span class="verify-tag verify-tag--resolved">Resolved</span> <strong>"Save and come back later" needs to be a primary action.</strong> Used naturally by JW twice mid-session.</li>
+    <li class="resolved"><span class="verify-tag verify-tag--resolved">Resolved</span> <strong>Multi-file CPD upload is natural for doctors with multiple sources.</strong> MA mapped 3 records immediately.</li>
+    <li class="resolved"><span class="verify-tag verify-tag--resolved">Resolved</span> <strong>Print option is genuinely used.</strong> MB actually printed during the session.</li>
+    <li class="resolved"><span class="verify-tag verify-tag--resolved">Resolved</span> <strong>"Something not right?" reads as invitation.</strong> MA: *"This would have saved me. I would have used this."*</li>
+    <li class="resolved"><span class="verify-tag verify-tag--resolved">Resolved</span> <strong>Fee callout on Start reduces surprise.</strong> No participant in round 2 reacted to the fee at Check Your Answers.</li>
+  </ul>
+
+  <h3>Resolved in round 1</h3>
+  <ul>
+    <li class="resolved"><span class="verify-tag verify-tag--resolved">Resolved</span> Trident ID lookup trust · plain-language respectfulness · alpha.gov.bb chrome legitimacy. (All 3 confirmed in round 1.)</li>
+  </ul>
+</aside>
+
+<script>
+function goTo(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('page--active'));
+  var el = document.getElementById(id);
+  if (el) { el.classList.add('page--active'); window.scrollTo(0, 0); }
+}
+function toggleAssumptions() {
+  var panel = document.getElementById('assumptions');
+  panel.classList.toggle('bimstack-assumptions--open');
+  panel.setAttribute('aria-hidden', !panel.classList.contains('bimstack-assumptions--open'));
+}
+</script>
+
+</body>
+</html>

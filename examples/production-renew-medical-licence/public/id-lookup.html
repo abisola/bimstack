@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's your Trident ID? – Renew your medical licence – alpha.gov.bb</title>
+<meta name="description" content="Enter your Trident ID number so we can look up your registration details.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/govbb.css">
+</head>
+<body>
+<a href="#main" class="govbb-skip-link">Skip to main content</a>
+
+<div class="govbb-official-banner" role="region" aria-label="Official notice">This is the official government service of Barbados</div>
+
+<header class="govbb-header" role="banner">
+  <div class="govbb-header__crest" aria-hidden="true">BB</div>
+  <a href="index.html" class="govbb-header__title">alpha.gov.bb</a>
+  <span class="govbb-header__service">Renew your medical licence</span>
+</header>
+
+<div class="govbb-status-banner govbb-status-banner--alpha" role="region" aria-label="Service status">
+  <strong>alpha</strong>
+  <span>This is a prototype service. <a href="feedback.html">Tell us what you think</a>.</span>
+</div>
+
+<main id="main" class="govbb-container">
+  <a href="context.html" class="govbb-back-link">Back</a>
+
+  <h1>What's your Trident ID?</h1>
+
+  <!-- In production: <form method="POST" action="/api/renewal/identity"> -->
+  <form method="get" action="confirm-details.html">
+    <div class="govbb-form-group">
+      <label class="govbb-label" for="trident-id">Trident ID number</label>
+      <span class="govbb-hint" id="trident-id-hint">This is the 12-digit number on your Trident ID card, or your National Registration Number (NRN).</span>
+      <input class="govbb-input govbb-input--short" id="trident-id" name="trident_id" type="text" autocomplete="off" required pattern="^\d{6}-\d{4}$" aria-describedby="trident-id-hint" inputmode="numeric">
+    </div>
+
+    <p style="font-size: 14px; color: var(--bb-grey-mid);">We'll look up your name, contact details, and current registration category. You won't have to type them in.</p>
+
+    <div class="govbb-save-bar">
+      <p><strong>Pause any time.</strong> We'll save your progress.</p>
+      <button type="button">Save and come back</button>
+    </div>
+
+    <div class="govbb-actions">
+      <button type="submit" class="govbb-btn">Continue</button>
+    </div>
+  </form>
+</main>
+
+<footer class="govbb-footer" role="contentinfo">
+  <div class="govbb-footer__inner">
+    <div>
+      <p style="margin-bottom: 8px;"><strong>alpha.gov.bb</strong></p>
+      <p style="margin-bottom: 0; font-size: 13px;">Built and maintained by GovTech Barbados in partnership with the Medical Council of Barbados.</p>
+    </div>
+    <div>
+      <p style="margin-bottom: 8px;"><a href="help.html">Help</a> · <a href="privacy.html">Privacy</a> · <a href="accessibility.html">Accessibility</a> · <a href="contact.html">Contact</a></p>
+      <p style="margin-bottom: 0; font-size: 13px;">© 2026 Government of Barbados</p>
+    </div>
+    <div class="govbb-footer__crest" aria-hidden="true">BB</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renew your medical licence – alpha.gov.bb</title>
+<!--
+  bimstack prototype – Variant 3 of 3 – Hybrid assisted-digital
+  Hypothesis: doctors who can't or won't renew digitally are first-class, not an
+  afterthought. The Start page presents the two paths with equal weight, and the
+  assisted path is a real booked appointment with a real Council officer at a
+  real location – not a phone number buried in a help link.
+  Tests Standard 3 (everyone can use it) hard.
+  Anchored to Standards 1, 3, 4, 5, 7, 11.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bb-navy: #00267F; --bb-gold: #FFC726; --bb-off-white: #F7F3F3; --bb-charcoal: #2C2C2C; --bb-white: #FFFFFF; --bb-grey-light: #DDDDDD; --bb-grey-mid: #777777; --bb-error: #B71C1C; --bb-green: #00703C; --bb-success-bg: #E8F5E9; --bb-coral: #FF6B6B; }
+html { font-size: 16px; }
+body { font-family: 'Figtree', system-ui, sans-serif; background: var(--bb-off-white); color: var(--bb-charcoal); line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
+.govbb-official-banner { background: var(--bb-charcoal); color: var(--bb-white); font-size: 13px; padding: 8px 24px; text-align: center; letter-spacing: 0.5px; }
+.govbb-header { background: var(--bb-gold); padding: 18px 24px; display: flex; align-items: center; gap: 24px; border-bottom: 3px solid var(--bb-charcoal); }
+.govbb-header__crest { width: 36px; height: 36px; background: var(--bb-navy); color: var(--bb-gold); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; letter-spacing: 1px; }
+.govbb-header__title { font-size: 22px; font-weight: 700; color: var(--bb-charcoal); text-decoration: none; }
+.govbb-header__service { font-size: 14px; color: var(--bb-charcoal); margin-left: auto; }
+.govbb-status-banner--alpha { background: #FCF1D4; padding: 12px 24px; font-size: 15px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--bb-grey-light); }
+.govbb-status-banner--alpha strong { background: var(--bb-charcoal); color: var(--bb-white); padding: 3px 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+.bimstack-banner { background: var(--bb-navy); color: var(--bb-white); padding: 10px 24px; font-size: 14px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.bimstack-banner__variant { font-weight: 600; }
+.bimstack-banner button { background: var(--bb-gold); color: var(--bb-charcoal); border: 0; padding: 6px 14px; font-weight: 700; font-size: 13px; cursor: pointer; font-family: inherit; }
+main.govbb-container { max-width: 720px; width: 100%; margin: 32px auto; padding: 0 24px; flex: 1; }
+.govbb-back-link { display: inline-block; color: var(--bb-navy); margin-bottom: 24px; font-size: 16px; text-decoration: underline; cursor: pointer; background: none; border: 0; padding: 0; font-family: inherit; }
+.govbb-back-link::before { content: "← "; }
+h1 { font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+h2 { font-size: 22px; font-weight: 600; margin-bottom: 12px; margin-top: 24px; }
+p { margin-bottom: 16px; font-size: 18px; }
+ul.govbb-list { padding-left: 20px; margin-bottom: 16px; }
+ul.govbb-list li { font-size: 18px; margin-bottom: 6px; }
+.govbb-form-group { margin-bottom: 28px; }
+.govbb-label { display: block; font-weight: 700; font-size: 20px; margin-bottom: 6px; }
+.govbb-hint { display: block; color: var(--bb-grey-mid); margin-bottom: 12px; font-size: 16px; }
+.govbb-input { width: 100%; max-width: 480px; padding: 10px 12px; font-size: 18px; border: 2px solid var(--bb-charcoal); font-family: inherit; background: var(--bb-white); }
+.govbb-input:focus { outline: 4px solid var(--bb-gold); }
+.govbb-input--short { max-width: 220px; }
+.govbb-btn { background: var(--bb-green); color: var(--bb-white); border: 0; padding: 12px 24px; font-size: 18px; font-weight: 600; cursor: pointer; font-family: inherit; box-shadow: 0 2px 0 #00451f; }
+.govbb-btn:hover { background: #00873d; }
+.govbb-btn:active { transform: translateY(2px); box-shadow: none; }
+.govbb-btn--secondary { background: var(--bb-charcoal); box-shadow: 0 2px 0 #000; }
+.govbb-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+.govbb-callout { background: var(--bb-white); border-left: 6px solid var(--bb-navy); padding: 16px 20px; margin-bottom: 24px; }
+.govbb-callout--success { background: var(--bb-success-bg); border-color: var(--bb-green); }
+.govbb-callout--gold { background: #FFF8DC; border-color: var(--bb-gold); }
+.path-choice {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0;
+}
+.path-card {
+  background: var(--bb-white); border: 3px solid var(--bb-charcoal); padding: 24px;
+  display: flex; flex-direction: column; cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit; text-align: left;
+}
+.path-card:hover { border-color: var(--bb-navy); box-shadow: 0 4px 0 var(--bb-navy); transform: translateY(-2px); }
+.path-card:focus { outline: 4px solid var(--bb-gold); outline-offset: 0; }
+.path-card h2 { font-size: 24px; margin-top: 0; margin-bottom: 8px; color: var(--bb-navy); }
+.path-card__time { display: inline-block; background: var(--bb-gold); color: var(--bb-charcoal); padding: 4px 10px; font-weight: 700; font-size: 13px; margin-bottom: 12px; align-self: flex-start; text-transform: uppercase; letter-spacing: 0.5px; }
+.path-card__suit { font-size: 14px; color: var(--bb-grey-mid); margin-top: auto; padding-top: 16px; }
+.path-card__cta { font-weight: 700; color: var(--bb-navy); margin-top: 16px; }
+.path-card__cta::after { content: " →"; }
+.slot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 24px; }
+.slot-btn { background: var(--bb-white); border: 2px solid var(--bb-charcoal); padding: 12px; cursor: pointer; font-family: inherit; font-size: 16px; text-align: left; }
+.slot-btn:hover { background: #FFF8DC; }
+.slot-btn--selected { background: var(--bb-navy); color: var(--bb-white); border-color: var(--bb-navy); }
+.slot-btn__time { font-weight: 700; display: block; }
+.slot-btn__avail { font-size: 13px; color: var(--bb-grey-mid); }
+.slot-btn--selected .slot-btn__avail { color: var(--bb-gold); }
+.govbb-footer { background: var(--bb-navy); color: var(--bb-white); padding: 32px 24px; margin-top: 48px; font-size: 14px; }
+.govbb-footer__inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; }
+.govbb-footer a { color: var(--bb-gold); }
+.govbb-footer__crest { width: 40px; height: 40px; background: var(--bb-gold); color: var(--bb-navy); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; }
+.bimstack-assumptions { position: fixed; right: -440px; top: 0; width: 420px; height: 100vh; background: #FFFBEA; border-left: 3px solid var(--bb-charcoal); padding: 24px; overflow-y: auto; transition: right 0.25s ease-out; z-index: 100; box-shadow: -2px 0 8px rgba(0,0,0,0.1); }
+.bimstack-assumptions--open { right: 0; }
+.bimstack-assumptions__close { position: absolute; top: 16px; right: 16px; background: var(--bb-charcoal); color: var(--bb-white); border: 0; width: 32px; height: 32px; font-size: 18px; cursor: pointer; font-family: inherit; }
+.bimstack-assumptions h2 { font-size: 20px; margin-bottom: 12px; margin-top: 0; }
+.bimstack-assumptions p { font-size: 13px; margin-bottom: 12px; }
+.bimstack-assumptions ul { padding-left: 0; list-style: none; }
+.bimstack-assumptions li { margin-bottom: 14px; font-size: 13px; line-height: 1.5; }
+.bimstack-assumptions h3 { font-size: 13px; margin: 18px 0 8px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--bb-grey-mid); }
+.verify-tag { display: inline-block; background: var(--bb-charcoal); color: var(--bb-gold); font-size: 10px; padding: 2px 6px; font-weight: 700; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.verify-tag--user { background: var(--bb-navy); color: var(--bb-white); }
+.verify-tag--mda { background: #8B4513; color: var(--bb-white); }
+.verify-tag--mist { background: #4A148C; color: var(--bb-white); }
+.verify-tag--policy { background: var(--bb-error); color: var(--bb-white); }
+.verify-tag--data { background: var(--bb-green); color: var(--bb-white); }
+.verify-tag--gap { background: var(--bb-gold); color: var(--bb-charcoal); }
+.fake-data { display: inline-block; background: #FFF8DC; border: 1px dashed var(--bb-grey-mid); padding: 1px 4px; font-size: 0.95em; }
+.page { display: none; }
+.page--active { display: block; }
+@media (max-width: 720px) {
+  main.govbb-container { padding: 0 16px; margin: 16px auto; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 20px; }
+  p, ul.govbb-list li { font-size: 17px; }
+  .bimstack-assumptions { width: 100vw; right: -100vw; }
+  .path-choice { grid-template-columns: 1fr; }
+  .slot-grid { grid-template-columns: 1fr; }
+  .govbb-header { flex-wrap: wrap; }
+  .govbb-header__service { margin-left: 0; flex-basis: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="govbb-official-banner">This is the official government service of Barbados</div>
+
+<header class="govbb-header">
+  <div class="govbb-header__crest">BB</div>
+  <a href="#" class="govbb-header__title">alpha.gov.bb</a>
+  <span class="govbb-header__service">Renew your medical licence</span>
+</header>
+
+<div class="govbb-status-banner govbb-status-banner--alpha">
+  <strong>alpha</strong>
+  <span>This is a prototype. Don't use it for a real renewal.</span>
+</div>
+
+<div class="bimstack-banner">
+  <span><span class="bimstack-banner__variant">Variant 3 of 3</span> · Hybrid assisted-digital</span>
+  <button onclick="toggleAssumptions()">Show assumptions (13)</button>
+</div>
+
+<main class="govbb-container">
+
+  <!-- PAGE: CHOOSE PATH -->
+  <section id="page-choose" class="page page--active">
+    <h1>Renew your medical licence</h1>
+    <p>You can renew online from your phone, or book a short appointment at the Medical Council to do it in person with our help.</p>
+
+    <p style="font-size: 16px; color: var(--bb-grey-mid);">Both paths take you to the same place – a current annual licence and a certificate from the Council.</p>
+
+    <div class="path-choice">
+      <button class="path-card" onclick="goTo('page-online-start')">
+        <span class="path-card__time">About 10 minutes</span>
+        <h2>Renew online</h2>
+        <p style="font-size: 16px;">From your phone or computer. Most doctors finish in one sitting.</p>
+        <p class="path-card__suit">Suits you if: you've got 10 minutes, a phone with internet, and your CPD record handy.</p>
+        <p class="path-card__cta">Start online renewal</p>
+      </button>
+
+      <button class="path-card" onclick="goTo('page-book')">
+        <span class="path-card__time">30-minute appointment</span>
+        <h2>Get help at the Council</h2>
+        <p style="font-size: 16px;">Book a slot and one of our officers will sit with you and get it done.</p>
+        <p class="path-card__suit">Suits you if: you'd rather speak to someone, your CPD is on paper, or last year's renewal was difficult.</p>
+        <p class="path-card__cta">Book an appointment</p>
+      </button>
+    </div>
+
+    <div class="govbb-callout govbb-callout--gold">
+      <strong>Not sure which?</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">Start online – you can stop and book an appointment any time if it gets stuck.</p>
+    </div>
+  </section>
+
+  <!-- PAGE: ONLINE START (compressed) -->
+  <section id="page-online-start" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-choose')">Back</button>
+
+    <h1>Online renewal</h1>
+    <p>You'll need your Trident ID number, your CPD record, and a card for the BBD 200 fee. Most doctors finish in 10 minutes.</p>
+
+    <div class="govbb-callout">
+      <strong>You can pause any time</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">If you get stuck, tap "Get help instead" and we'll book you an appointment. Anything you've already entered will be there when the Council sees you.</p>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-online-id')">Continue online</button>
+      <button class="govbb-btn govbb-btn--secondary" onclick="goTo('page-book')">Get help instead</button>
+    </div>
+  </section>
+
+  <!-- PAGE: ONLINE ID (kept brief – same shape as Variant 1) -->
+  <section id="page-online-id" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-online-start')">Back</button>
+    <h1>What's your Trident ID?</h1>
+    <div class="govbb-form-group">
+      <label class="govbb-label" for="trident-id">Trident ID number</label>
+      <span class="govbb-hint">12-digit Trident ID, or your National Registration Number.</span>
+      <input class="govbb-input govbb-input--short" type="text" id="trident-id" value="750814-9384">
+    </div>
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-online-confirm')">Continue</button>
+      <button class="govbb-btn govbb-btn--secondary" onclick="goTo('page-book')">Get help instead</button>
+    </div>
+  </section>
+
+  <!-- PAGE: ONLINE CONFIRM (compressed – just the ID confirmation, then jump to result) -->
+  <section id="page-online-confirm" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-online-id')">Back</button>
+    <h1>Is this you?</h1>
+    <p>Found one record matching that Trident ID.</p>
+    <div style="background: var(--bb-white); border: 2px solid var(--bb-navy); padding: 20px; margin-bottom: 24px;">
+      <h3 style="margin-bottom: 12px;"><span class="fake-data">Dr. Sarah K. Williams</span></h3>
+      <p style="margin: 0; font-size: 16px;"><strong>NRN:</strong> <span class="fake-data">750814-9384</span> · <strong>Parish:</strong> <span class="fake-data">St. Michael</span></p>
+      <p style="margin: 8px 0 0; font-size: 16px;">Full registration · Expires <span class="fake-data">31 Dec 2026</span></p>
+    </div>
+
+    <p style="font-size: 14px; color: var(--bb-grey-mid);">The full online flow from here mirrors Variant 1 – practice, CPD upload, Check Your Answers, payment, confirmation. Skipped for brevity in this prototype.</p>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-online-confirmation')">Skip to confirmation (prototype shortcut)</button>
+      <button class="govbb-btn govbb-btn--secondary" onclick="goTo('page-book')">Get help instead</button>
+    </div>
+  </section>
+
+  <!-- PAGE: ONLINE CONFIRMATION -->
+  <section id="page-online-confirmation" class="page">
+    <div class="govbb-callout govbb-callout--success">
+      <h1 style="margin-bottom: 8px;">Renewal complete</h1>
+      <p style="margin-bottom: 0;">Reference number <strong class="fake-data">MED-2026-04857</strong>. Certificate by email in 5 working days.</p>
+    </div>
+    <h2>Tell us what you thought</h2>
+    <div class="govbb-actions">
+      <button class="govbb-btn govbb-btn--secondary" onclick="alert('Feedback in a real service.')">Give feedback</button>
+      <button class="govbb-btn govbb-btn--secondary" onclick="goTo('page-choose')">Start over (prototype)</button>
+    </div>
+  </section>
+
+  <!-- PAGE: BOOK -->
+  <section id="page-book" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-choose')">Back</button>
+
+    <h1>Book a Council appointment</h1>
+    <p>A Medical Council officer will help you renew in about 30 minutes. Bring any paperwork you have.</p>
+
+    <h2>Pick a time</h2>
+    <p style="font-size: 16px; color: var(--bb-grey-mid);">Medical Council of Barbados · <span class="fake-data">Pine East-West Boulevard, Bridgetown</span></p>
+
+    <h3 style="font-size: 18px; margin: 24px 0 12px;"><span class="fake-data">Monday 1 June 2026</span></h3>
+    <div class="slot-grid">
+      <button class="slot-btn" onclick="this.parentElement.parentElement.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('slot-btn--selected')); this.classList.add('slot-btn--selected');">
+        <span class="slot-btn__time">09:30</span><span class="slot-btn__avail">Available</span>
+      </button>
+      <button class="slot-btn" onclick="this.parentElement.parentElement.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('slot-btn--selected')); this.classList.add('slot-btn--selected');">
+        <span class="slot-btn__time">10:30</span><span class="slot-btn__avail">Available</span>
+      </button>
+      <button class="slot-btn" onclick="this.parentElement.parentElement.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('slot-btn--selected')); this.classList.add('slot-btn--selected');">
+        <span class="slot-btn__time">14:00</span><span class="slot-btn__avail">Available</span>
+      </button>
+      <button class="slot-btn" disabled style="opacity: 0.5; cursor: not-allowed;">
+        <span class="slot-btn__time">15:00</span><span class="slot-btn__avail">Booked</span>
+      </button>
+    </div>
+
+    <h3 style="font-size: 18px; margin: 24px 0 12px;"><span class="fake-data">Tuesday 2 June 2026</span></h3>
+    <div class="slot-grid">
+      <button class="slot-btn" onclick="this.parentElement.parentElement.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('slot-btn--selected')); this.classList.add('slot-btn--selected');">
+        <span class="slot-btn__time">09:30</span><span class="slot-btn__avail">Available</span>
+      </button>
+      <button class="slot-btn" onclick="this.parentElement.parentElement.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('slot-btn--selected')); this.classList.add('slot-btn--selected');">
+        <span class="slot-btn__time">14:00</span><span class="slot-btn__avail">Available</span>
+      </button>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-book-confirm')">Continue</button>
+    </div>
+  </section>
+
+  <!-- PAGE: BOOK CONFIRM -->
+  <section id="page-book-confirm" class="page">
+    <button class="govbb-back-link" onclick="goTo('page-book')">Back</button>
+
+    <h1>Who shall we book in?</h1>
+    <div class="govbb-form-group">
+      <label class="govbb-label" for="book-name">Your name</label>
+      <input class="govbb-input" type="text" id="book-name" placeholder="e.g. Sarah Williams">
+    </div>
+    <div class="govbb-form-group">
+      <label class="govbb-label" for="book-id">Trident ID or NRN</label>
+      <span class="govbb-hint">Bring your ID with you to the appointment.</span>
+      <input class="govbb-input govbb-input--short" type="text" id="book-id" placeholder="e.g. 750814-9384">
+    </div>
+    <div class="govbb-form-group">
+      <label class="govbb-label" for="book-phone">Phone</label>
+      <span class="govbb-hint">We'll text a reminder the day before.</span>
+      <input class="govbb-input govbb-input--short" type="text" id="book-phone" placeholder="246-555-0143">
+    </div>
+
+    <div class="govbb-callout govbb-callout--gold">
+      <strong>What to bring</strong>
+      <ul style="margin: 8px 0 0 20px;">
+        <li style="font-size: 16px;">Your Trident ID card (or another government ID)</li>
+        <li style="font-size: 16px;">Your CPD record – paper is fine</li>
+        <li style="font-size: 16px;">A card or cash for the BBD 200 fee</li>
+      </ul>
+    </div>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn" onclick="goTo('page-book-confirmation')">Confirm appointment</button>
+    </div>
+  </section>
+
+  <!-- PAGE: BOOK CONFIRMATION -->
+  <section id="page-book-confirmation" class="page">
+    <div class="govbb-callout govbb-callout--success">
+      <h1 style="margin-bottom: 8px;">Appointment booked</h1>
+      <p style="margin-bottom: 0;"><span class="fake-data">Monday 1 June 2026, 09:30</span> · Medical Council of Barbados · <span class="fake-data">Pine East-West Boulevard, Bridgetown</span></p>
+    </div>
+
+    <h2>What happens next</h2>
+    <ul class="govbb-list">
+      <li>We'll text <span class="fake-data">246-555-0143</span> the day before to remind you.</li>
+      <li>Bring your Trident ID, your CPD record, and a card or cash for the fee.</li>
+      <li>The officer will sit with you and complete the renewal. You'll leave with your certificate.</li>
+    </ul>
+
+    <h2>Need to change or cancel?</h2>
+    <p>Call <span class="fake-data">246-555-0100</span> or reply to the reminder text.</p>
+
+    <div class="govbb-actions">
+      <button class="govbb-btn govbb-btn--secondary" onclick="goTo('page-choose')">Start over (prototype)</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="govbb-footer">
+  <div class="govbb-footer__inner">
+    <div>
+      <p style="margin-bottom: 8px;"><strong>alpha.gov.bb</strong></p>
+      <p style="margin-bottom: 0; font-size: 13px;">Built and maintained by GovTech Barbados in partnership with the Medical Council of Barbados.</p>
+    </div>
+    <div>
+      <p style="margin-bottom: 8px;"><a href="#">Help</a> · <a href="#">Privacy</a> · <a href="#">Accessibility</a> · <a href="#">Contact</a></p>
+      <p style="margin-bottom: 0; font-size: 13px;">© 2026 Government of Barbados</p>
+    </div>
+    <div class="govbb-footer__crest">BB</div>
+  </div>
+</footer>
+
+<aside id="assumptions" class="bimstack-assumptions" aria-hidden="true">
+  <button class="bimstack-assumptions__close" onclick="toggleAssumptions()" aria-label="Close assumptions panel">×</button>
+  <h2>Assumptions to verify</h2>
+  <p>This variant deliberately presents both paths with equal weight to test whether assisted-digital can be first-class without being patronising.</p>
+
+  <h3>About the user</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> Doctors who choose assisted-digital don't feel relegated or judged. (Standard 3, Standard 4)</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> The two paths are read as equivalent, not as "easy path" vs "the hard one if you can't cope".</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> Older doctors and doctors with poor smartphone access find the booked-appointment route easy to discover.</li>
+    <li><span class="verify-tag verify-tag--user">Verify with users</span> "Get help instead" at every online step is reassuring rather than confusing.</li>
+  </ul>
+
+  <h3>About the Council's capacity</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--mda">Verify with MDA</span> The Council can offer 30-minute booked slots at scale, including during the renewal peak. (Standard 8 – sustainability)</li>
+    <li><span class="verify-tag verify-tag--mda">Verify with MDA</span> Council officers are happy to be the assisted-digital channel, with the right training. (Standard 2)</li>
+    <li><span class="verify-tag verify-tag--mda">Verify with MDA</span> A booking system can be wired up to the Council's existing rota and physical space.</li>
+    <li><span class="verify-tag verify-tag--data">Verify with data</span> What share of doctors today need any kind of in-person help with the renewal? Sets the demand for the assisted slots.</li>
+  </ul>
+
+  <h3>About the platform</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--mist">Verify with MIST</span> An appointment-booking pattern exists in the design system, or needs to be added. (Standard 9 – propose back)</li>
+    <li><span class="verify-tag verify-tag--mist">Verify with MIST</span> SMS notifications via a shared GovTech channel are available for reminders.</li>
+    <li><span class="verify-tag verify-tag--gap">Known gap</span> The online-to-assisted hand-off ("save what I've entered, the Council can see it") needs a real session-state mechanism. (Standard 7)</li>
+  </ul>
+
+  <h3>About policy</h3>
+  <ul>
+    <li><span class="verify-tag verify-tag--policy">Verify with policy</span> Booking a renewal slot doesn't create a regulatory expectation that the appointment will succeed regardless of evidence. (Council retains regulatory discretion.)</li>
+    <li><span class="verify-tag verify-tag--policy">Verify with policy</span> A doctor's data carried from online into an assisted appointment is held legally for that purpose. (Standard 11)</li>
+  </ul>
+</aside>
+
+<script>
+function goTo(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('page--active'));
+  var el = document.getElementById(id);
+  if (el) { el.classList.add('page--active'); window.scrollTo(0, 0); }
+}
+function toggleAssumptions() {
+  var panel = document.getElementById('assumptions');
+  panel.classList.toggle('bimstack-assumptions--open');
+  panel.setAttribute('aria-hidden', !panel.classList.contains('bimstack-assumptions--open'));
+}
+</script>
+
+</body>
+</html>

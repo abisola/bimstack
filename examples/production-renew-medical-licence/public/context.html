@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where will you be practising? – Renew your medical licence – alpha.gov.bb</title>
+<meta name="description" content="Tell us where you'll be practising this year so we can adjust the renewal for you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/govbb.css">
+</head>
+<body>
+<a href="#main" class="govbb-skip-link">Skip to main content</a>
+
+<div class="govbb-official-banner" role="region" aria-label="Official notice">This is the official government service of Barbados</div>
+
+<header class="govbb-header" role="banner">
+  <div class="govbb-header__crest" aria-hidden="true">BB</div>
+  <a href="index.html" class="govbb-header__title">alpha.gov.bb</a>
+  <span class="govbb-header__service">Renew your medical licence</span>
+</header>
+
+<div class="govbb-status-banner govbb-status-banner--alpha" role="region" aria-label="Service status">
+  <strong>alpha</strong>
+  <span>This is a prototype service. <a href="feedback.html">Tell us what you think</a>.</span>
+</div>
+
+<main id="main" class="govbb-container">
+  <a href="index.html" class="govbb-back-link">Back</a>
+
+  <!-- In production: <form method="POST" action="/api/renewal/context"> -->
+  <form method="get" action="id-lookup.html">
+    <fieldset style="border: 0;">
+      <legend class="govbb-fieldset-legend">Where will you be practising this year?</legend>
+      <span class="govbb-hint">Pick the one that's most true for you right now. We'll adjust the rest of the renewal to match.</span>
+
+      <div class="govbb-radio">
+        <input type="radio" id="ctx-bb" name="context" value="bb" checked required>
+        <label for="ctx-bb"><strong>I'm in Barbados, actively practising</strong><br><span style="color: var(--bb-grey-mid); font-size: 16px;">Full registration, active practice in a hospital, polyclinic, or private clinic.</span></label>
+      </div>
+
+      <div class="govbb-radio">
+        <input type="radio" id="ctx-abroad" name="context" value="abroad">
+        <label for="ctx-abroad"><strong>I'm working abroad temporarily</strong><br><span style="color: var(--bb-grey-mid); font-size: 16px;">Locum, rotation, fellowship, or short-term posting outside Barbados. You'll still need to renew here.</span></label>
+      </div>
+
+      <div class="govbb-radio">
+        <input type="radio" id="ctx-occasional" name="context" value="occasional">
+        <label for="ctx-occasional"><strong>I'm retired or only practising occasionally</strong><br><span style="color: var(--bb-grey-mid); font-size: 16px;">Limited practice, favours for old patients, or covering occasionally for colleagues.</span></label>
+      </div>
+    </fieldset>
+
+    <div class="ctx-note ctx-note--bb govbb-callout govbb-callout--info" role="region" aria-label="Note for in-Barbados renewal">
+      <strong>Standard renewal flow</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">You'll go through the standard renewal: identity, practice details, CPD, payment, confirmation.</p>
+    </div>
+
+    <div class="ctx-note ctx-note--abroad govbb-callout govbb-callout--info" role="region" aria-label="Note for renewing from abroad">
+      <strong>What's different if you're abroad</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">We'll let you give us a different email or postal address while you're away. CPD from your overseas rotation counts – the next step explains what we accept.</p>
+    </div>
+
+    <div class="ctx-note ctx-note--occasional govbb-callout govbb-callout--warning" role="region" aria-label="Note for retired or occasional doctors">
+      <strong>You may need a different category</strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">The Medical Council has a <em>restricted</em> registration category for retired or occasional doctors. The CPD requirement and fee are different. Call the Council on 246-535-7400 before you continue if you're not sure. You can still complete the form below and we'll route it to the right reviewer.</p>
+    </div>
+
+    <div class="govbb-save-bar">
+      <p><strong>Pause any time.</strong> We'll save your progress and email you a link to come back.</p>
+      <button type="button">Save and come back</button>
+    </div>
+
+    <div class="govbb-actions">
+      <button type="submit" class="govbb-btn">Continue</button>
+    </div>
+  </form>
+</main>
+
+<footer class="govbb-footer" role="contentinfo">
+  <div class="govbb-footer__inner">
+    <div>
+      <p style="margin-bottom: 8px;"><strong>alpha.gov.bb</strong></p>
+      <p style="margin-bottom: 0; font-size: 13px;">Built and maintained by GovTech Barbados in partnership with the Medical Council of Barbados.</p>
+    </div>
+    <div>
+      <p style="margin-bottom: 8px;"><a href="help.html">Help</a> · <a href="privacy.html">Privacy</a> · <a href="accessibility.html">Accessibility</a> · <a href="contact.html">Contact</a></p>
+      <p style="margin-bottom: 0; font-size: 13px;">© 2026 Government of Barbados</p>
+    </div>
+    <div class="govbb-footer__crest" aria-hidden="true">BB</div>
+  </div>
+</footer>
+</body>
+</html>
