@@ -83,7 +83,7 @@ You are the keeper of which phase the team is in. When other agents ask "what ph
 | RAID log | Markdown table | Live throughout the phase |
 | Phase-gate report | Markdown | Before alpha→beta, beta→live, live→retire |
 
-For workshops with stakeholders, defer to `service-design:workshop-facilitation`. For ecosystem mapping, defer to the service designer using `service-design:ecosystem-map`.
+For workshops with stakeholders, defer to `bimstack:workshop-facilitation`. For ecosystem mapping, defer to the service designer using `bimstack:ecosystem-map`.
 
 ---
 

@@ -23,6 +23,6 @@ Once you have the context, produce these artefacts following the templates in `s
 4. **Interview guide** – warm-up, core questions, probes, close
 5. **Discovery report template** – ready to be filled in as the discovery runs
 
-For ecosystem maps, ask the service-designer agent to use the `service-design:ecosystem-map` skill. For workshops with stakeholders, point to `service-design:workshop-facilitation`.
+For ecosystem maps, ask the service-designer agent to use the `bimstack:ecosystem-map` skill. For workshops with stakeholders, point to `bimstack:workshop-facilitation`.
 
 Save the discovery kit to the workspace folder as a folder `discovery-[service-slug]/` containing each artefact as a separate Markdown file, and share the folder location with the user.

@@ -23,7 +23,7 @@ This file explains what each verb means in practice, who leads it, and what good
 - Existing data (analytics, support tickets) reviewed every sprint
 - Under-represented citizens specifically sought out, not just whoever's easiest to recruit
 
-**Skills:** `design:user-research`, `design:research-synthesis`.
+**Skills:** `bimstack:research-coach` (the router across the whole cycle), `bimstack:research-planning`, `bimstack:transcript-analysis`, `bimstack:research-presenting`, supported by `design:user-research` and `design:research-synthesis`.
 
 **Cost of skipping:** you build for an imagined citizen. Standard 1 fails.
 
@@ -41,7 +41,7 @@ This file explains what each verb means in practice, who leads it, and what good
 - Service blueprint making the back office visible from beta onwards
 - All maps published to the team space (and outside the team where possible)
 
-**Skills:** `service-design:journey-map`, `service-design:service-blueprint`, `service-design:ecosystem-map`, `service-design:experience-map`.
+**Skills:** `bimstack:journey-map`, `bimstack:service-blueprint`, `bimstack:ecosystem-map`, `bimstack:experience-map` (the Anthropic `service-design` plugin extends these where installed).
 
 **Cost of skipping:** the team builds different services in parallel and doesn't notice until beta.
 

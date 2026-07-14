@@ -115,7 +115,7 @@ bimstack assumes these are also installed (they handle the GovTech Barbados visu
 - `govtech-barbados-qr-codes` – branded QR codes
 - Anthropic `design`, `service-design`, `frontend-design` plugin marketplaces
 
-bimstack still works without them but is more powerful with them installed.
+bimstack still works without them but is more powerful with them installed. The load-bearing skills – the research cycle, journey maps, service blueprints, ecosystem maps, experience maps, and workshop plans – are native to bimstack, so nothing dead-ends if the Anthropic plugins are absent.
 
 ---
 
@@ -127,7 +127,9 @@ When you install bimstack, you've added five new specialists to your team. They 
 
 The Service Designer is quietly insistent and sceptical of solutions that arrive before problems. They lead discovery, plan research, synthesise interviews, map journeys and ecosystems, write problem statements.
 
-**Use them when:** starting a new service, planning user research, mapping a current-state journey, synthesising interview notes, asking "what user need does this serve?"
+They carry a dedicated research toolkit: `research-planning` (decision-linked objectives before any discussion guide, behavioural questions over opinion questions), `transcript-analysis` (what participants did, not what they said, cross-referenced against prior rounds), `research-presenting` (readouts a delivery team will act on), and `research-coach` (the mentor and router across the whole cycle – ask it "how am I doing" and it will tell you specifically).
+
+**Use them when:** starting a new service, planning user research, running or debriefing interviews, mapping a current-state journey, synthesising interview notes or transcripts, preparing a research readout, asking "what user need does this serve?"
 
 **They own:** Standards 1 (meet user needs), 5 (works first time), 10 (continuously improved).
 
@@ -392,7 +394,7 @@ Run `/bimstack:discover` first. Don't run `/bimstack:build` against an unevidenc
 
 **Do I need to install all the supporting plugins (`govtech-barbados-*`, `design`, `service-design`)?**
 
-bimstack works without them but is more powerful with them. Install the GovTech Barbados ones at minimum – they handle the visual identity. The Anthropic design/service-design plugins extend the agents' deeper skill libraries.
+bimstack works without them but is more powerful with them. Install the GovTech Barbados ones at minimum – they handle the visual identity. The core service-design artefacts (journey maps, service blueprints, ecosystem maps, experience maps, workshop plans) and the research cycle now ship natively in bimstack; the Anthropic design/service-design plugins extend those with deeper method libraries where installed.
 
 **How do I share what we've built with another team?**
 

@@ -2,6 +2,18 @@
 
 All notable changes to bimstack will be recorded here. Format inspired by [Keep a Changelog](https://keepachangelog.com).
 
+## [Unreleased]
+
+### Added
+
+- **Four user research skills** – `research-coach` (router and mentor across the whole research cycle, session craft including the false close, direct feedback on the researcher's craft), `research-planning` (decision-linked objectives before any discussion guide, digital literacy warm-up block, behavioural questions over opinion questions, the "if this didn't exist" test), `transcript-analysis` (behaviour over stated preference, workarounds and friction that changed behaviour, cross-referencing prior transcripts as confirms/contradicts/new/extends, coached interpretation), and `research-presenting` (finding → "so what", shared sense-making with the delivery team, action-first readout structure, memorable plain language)
+- Cross-references wired in: `discovery-kit` and `prototype-iteration` now defer to the research skills; service-designer agent, AGENTS.md, WORKFLOW.md (Listen), PLAYBOOK.md, MANUAL.md, and the README skill tree updated to match
+- **Five native service-design skills** – `journey-map` (steps, channels, feelings, pain points, all evidenced or marked `[ASSUMPTION]`), `service-blueprint` (frontstage/backstage/systems swimlanes separated by the lines of interaction, visibility, and internal interaction; time and failure-point rows), `ecosystem-map` (actors, channels, systems, and flows around a citizen need, informal actors included, Standard 7 note per system), `experience-map` (the citizen's whole goal across services, seams as first-class findings, scope recommendation), and `workshop-facilitation` (decision-linked working sessions with agenda, capture plan, and facilitation craft). Mapping skills output canonical Markdown plus an optional single-file GovBB-style HTML visual, matching the prototype pattern
+
+### Fixed
+
+- **Dead skill references.** The service-designer agent, delivery-manager agent, `discovery-kit`, `/bimstack:discover`, WORKFLOW.md, and AGENTS.md deferred to `service-design:*` and `design:*` skills that ship in separate Anthropic plugins and weren't declared as dependencies – a user installing only bimstack hit dead ends at the core service-design moments. All such references now point to the native `bimstack:*` skills, with the Anthropic plugins repositioned as optional extensions in MANUAL.md
+
 ## [0.1.1] – 2026-05-16
 
 ### Fixed

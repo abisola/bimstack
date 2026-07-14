@@ -199,7 +199,7 @@ End of week 1: first `/bimstack:weeknote`. Even if all you did was scaffold and 
 
 ### Weeks 2–4
 
-Run the research. For each interview round:
+Run the research. Before the first session, use the `research-planning` skill to pin down the objectives and build the discussion guide – it will push back on vague objectives and opinion-shaped questions, add the digital literacy warm-up block, and attach a note on the false close for the room. For each interview round:
 
 ```
 @service-designer I've just finished an interview with a private-practice GP
@@ -207,7 +207,7 @@ in St. Michael. Notes attached. Pull out the 5 most surprising things and
 suggest the next two probes for the next interview.
 ```
 
-After each interview, file the anonymised notes. The agent helps the team synthesise but doesn't replace the researcher's judgement.
+After each interview, file the anonymised notes (with the objectives copied into the front matter, word for word). The `transcript-analysis` skill reads each transcript for behaviour rather than opinion and cross-references prior rounds; `research-presenting` shapes the findings into a readout the team will act on. The agent helps the team synthesise but doesn't replace the researcher's judgement – if a researcher is unsure where they are in the cycle or wants feedback on their craft, `research-coach` is the front door.
 
 After every fortnight:
 
@@ -535,8 +535,10 @@ Things bimstack actively pushes against, even when senior people ask.
 | Turn a brief into testable prototypes | `/bimstack:build [brief]` | 2–3 clickable HTML prototypes + assumptions + test plan |
 | Roll feedback into the next version | `/bimstack:iterate [prototype]` | Next version + CHANGES.md changelog |
 | Take an iteration to production-ready | `/bimstack:productionise [iteration]` | Per-page HTML + 4-category test suite + readiness report |
-| Plan a research session | `@service-designer plan…` | A user-research plan |
-| Synthesise interviews | `@service-designer synthesise…` | Themes and user needs |
+| Plan a research session | `@service-designer plan…` (uses `research-planning`) | Decision-linked objectives + a behavioural discussion guide |
+| Get unstuck anywhere in the research cycle | "research coach" / "how am I doing" (uses `research-coach`) | Coaching, handoff checks, direct feedback |
+| Analyse transcripts | `@service-designer analyse…` (uses `transcript-analysis`) | Themes with evidence, confirmed/contradicted/new against prior rounds |
+| Turn findings into a readout | "research readout" (uses `research-presenting`) | 2–4 themes, owned recommendations, honest unknowns |
 | Review copy | `/bimstack:plain-language [text]` | A marked-up rewrite with citations |
 | Build a prototype | `@content-designer scaffold…` or `@developer scaffold…` | A GovBB-compliant HTML prototype |
 | Make a tech choice | `@developer recommend a stack for…` | An ADR draft with trade-offs |

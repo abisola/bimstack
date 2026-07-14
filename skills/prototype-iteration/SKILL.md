@@ -52,7 +52,7 @@ prototype-N-name/feedback-round-K.md
 
 This is the structured feedback (themes, what worked, what didn't, observed-but-unresolved, constraints) extracted from the transcripts. It carries verbatim quotes back to the participant who said them. **Review this file before the iteration**. If the synthesis got something wrong, fix it and re-run the iteration step. The synthesis is the team's chance to catch the skill making the wrong call.
 
-The service-designer agent leads the synthesis. The content-designer + developer agents lead the iteration.
+The service-designer agent leads the synthesis, applying the behavioural discipline from `bimstack:transcript-analysis` – weight what participants did over what they said, flag workarounds and friction that changed behaviour, and cross-reference prior rounds where transcripts exist. The content-designer + developer agents lead the iteration. If the team wants the analysis itself (themes, evidence, confidence) rather than a prototype change, use `bimstack:transcript-analysis` directly.
 
 ### Path B – Structured feedback you wrote yourself
 

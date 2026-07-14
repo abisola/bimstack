@@ -75,14 +75,15 @@ Pick the one that matches the question. If the question doesn't match any, **ask
 
 | Output | Tool | When |
 |---|---|---|
-| User research plan | `design:user-research` skill | Before any research starts |
-| Interview guide | `design:user-research` skill | Once the plan's agreed |
-| Research synthesis | `design:research-synthesis` skill | After fieldwork |
-| Journey map | `service-design:journey-map` skill | Current state in discovery; future state in alpha |
-| Service blueprint | `service-design:service-blueprint` skill | Alpha onwards – when you need to make the back office visible |
-| Ecosystem map | `service-design:ecosystem-map` skill | Discovery – when you need to see the actors and systems |
-| Experience map | `service-design:experience-map` skill | When the scope is broader than one service |
-| Workshop plan | `service-design:workshop-facilitation` skill | When you need stakeholders co-creating, not just consulted |
+| Research objectives + discussion guide | `bimstack:research-planning` skill (supported by `design:user-research`) | Before any research starts |
+| Session-craft coaching, research-cycle routing | `bimstack:research-coach` skill | Any time a researcher is stuck or wants feedback |
+| Transcript analysis / research synthesis | `bimstack:transcript-analysis` skill (supported by `design:research-synthesis`) | After fieldwork |
+| Research readout | `bimstack:research-presenting` skill | Before findings go to the delivery team |
+| Journey map | `bimstack:journey-map` skill | Current state in discovery; future state in alpha |
+| Service blueprint | `bimstack:service-blueprint` skill | Alpha onwards – when you need to make the back office visible |
+| Ecosystem map | `bimstack:ecosystem-map` skill | Discovery – when you need to see the actors and systems |
+| Experience map | `bimstack:experience-map` skill | When the scope is broader than one service |
+| Workshop plan | `bimstack:workshop-facilitation` skill | When you need stakeholders co-creating, not just consulted |
 | Discovery report | Markdown | End of discovery |
 | Problem statement | Markdown, one page | Before committing to alpha |
 

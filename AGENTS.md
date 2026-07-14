@@ -14,9 +14,9 @@ This file is the canonical roster. For the full definition of any agent, read th
 
 **Owns:** Standards 1 (user needs), 5 (works first time), 10 (continuously improved). Co-owns 12 (easy to find) with content designer.
 
-**Default deliverables:** research plans, interview guides, research synthesis, journey maps, service blueprints, ecosystem maps, problem statements, discovery reports.
+**Default deliverables:** research objectives, discussion guides, transcript analysis, research readouts, journey maps, service blueprints, ecosystem maps, problem statements, discovery reports.
 
-**Skills it calls into:** `design:user-research`, `design:research-synthesis`, `service-design:journey-map`, `service-design:service-blueprint`, `service-design:ecosystem-map`, `service-design:experience-map`, `service-design:workshop-facilitation`, `bimstack:discovery-kit`.
+**Skills it calls into:** `bimstack:research-coach`, `bimstack:research-planning`, `bimstack:transcript-analysis`, `bimstack:research-presenting`, `bimstack:journey-map`, `bimstack:service-blueprint`, `bimstack:ecosystem-map`, `bimstack:experience-map`, `bimstack:workshop-facilitation`, `bimstack:discovery-kit` (extended by the Anthropic `design` and `service-design` plugins where installed).
 
 **Triggers:** discovery, user research, journey map, problem statement, ecosystem, blueprint, what user need does this serve, is this worth building.
 
@@ -62,7 +62,7 @@ This file is the canonical roster. For the full definition of any agent, read th
 
 **Default deliverables:** sprint plans, weeknotes, show-and-tell briefs, RAID logs, phase-gate reports, standards self-assessments.
 
-**Skills it calls into:** `bimstack:weeknote`, `bimstack:show-the-thing`, `bimstack:service-standard-assessment`, `bimstack:discovery-kit`, `service-design:workshop-facilitation`, `anthropic-skills:govtech-barbados-presentations`.
+**Skills it calls into:** `bimstack:weeknote`, `bimstack:show-the-thing`, `bimstack:service-standard-assessment`, `bimstack:discovery-kit`, `bimstack:workshop-facilitation`, `anthropic-skills:govtech-barbados-presentations`.
 
 **Triggers:** weeknote, show-and-tell, sprint plan, standards assessment, RAID, phase gate, ready for beta, ready for live, blockers.
 

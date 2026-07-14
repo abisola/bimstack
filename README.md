@@ -66,6 +66,9 @@ bimstack/
 │   ├── weeknote.md
 │   ├── assess.md
 │   ├── discover.md
+│   ├── build.md
+│   ├── iterate.md
+│   ├── productionise.md
 │   ├── show.md
 │   ├── plain-language.md
 │   └── threat-model.md
@@ -74,6 +77,18 @@ bimstack/
 │   ├── plain-language-check/
 │   ├── weeknote/
 │   ├── discovery-kit/
+│   ├── research-coach/       router + mentor across the research cycle
+│   ├── research-planning/    objectives first, then the discussion guide
+│   ├── transcript-analysis/  behaviour over opinion, repo cross-referencing
+│   ├── research-presenting/  findings the delivery team will act on
+│   ├── journey-map/          what citizens do, step by step, evidenced
+│   ├── service-blueprint/    the journey plus the machinery underneath
+│   ├── ecosystem-map/        actors, systems, and flows as a network
+│   ├── experience-map/       the whole citizen goal, across services
+│   ├── workshop-facilitation/ co-creation sessions that produce artefacts
+│   ├── brief-to-prototypes/
+│   ├── prototype-iteration/
+│   ├── build-for-production/
 │   └── show-the-thing/
 └── references/               the canonical knowledge base
     ├── barbados-service-standards.md
