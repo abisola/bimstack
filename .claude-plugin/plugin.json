@@ -22,18 +22,5 @@
     "service-standards",
     "alpha.gov.bb",
     "govbb"
-  ],
-  "recommends": {
-    "skills": [
-      "govtech-barbados-services",
-      "govtech-barbados-forms",
-      "govtech-barbados-presentations",
-      "govtech-barbados-qr-codes"
-    ],
-    "plugins": [
-      "design",
-      "service-design",
-      "frontend-design"
-    ]
-  }
+  ]
 }

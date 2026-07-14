@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Five opinionated specialists for building government digital services in Barbados – anchored to the Barbados Digital Service Standards, the GOV.UK Design Principles, and the GDS Way.",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "plugins": [
     {
       "name": "bimstack",
       "source": "./",
-      "description": "Five opinionated specialists, eight slash commands, seven shared skills. Turn a brief into testable prototypes, then iterate from transcripts.",
-      "version": "0.1.0",
+      "description": "Five opinionated specialists, nine slash commands, eight shared skills. Turn a brief into testable prototypes, then iterate from transcripts.",
+      "version": "0.1.1",
       "category": "service-design",
       "keywords": [
         "govtech",
