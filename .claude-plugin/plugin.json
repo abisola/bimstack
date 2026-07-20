@@ -7,10 +7,7 @@
     "url": "https://govtech.bb"
   },
   "homepage": "https://github.com/abisola/bimstack",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/abisola/bimstack.git"
-  },
+  "repository": "https://github.com/abisola/bimstack.git",
   "license": "MIT",
   "keywords": [
     "govtech",
