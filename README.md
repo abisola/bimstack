@@ -79,10 +79,13 @@ bimstack/
 │   ├── discovery-kit/
 │   ├── research-coach/       router + mentor across the research cycle
 │   ├── research-planning/    objectives first, then the discussion guide
+│   ├── govtech-research-plans/ full three-part research plan as one .docx
 │   ├── transcript-analysis/  behaviour over opinion, repo cross-referencing
+│   ├── synthesize-research/  raw study data → layered findings package
 │   ├── research-presenting/  findings the delivery team will act on
 │   ├── journey-map/          what citizens do, step by step, evidenced
 │   ├── service-blueprint/    the journey plus the machinery underneath
+│   ├── service-journey-mapping/ blueprints + journey maps as commentable HTML
 │   ├── ecosystem-map/        actors, systems, and flows as a network
 │   ├── experience-map/       the whole citizen goal, across services
 │   ├── workshop-facilitation/ co-creation sessions that produce artefacts
